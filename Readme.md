@@ -1,0 +1,1 @@
+[![Build Status](https://travis-ci.org/mihanizm56/Loft-Taxi.svg?branch=develop)](https://travis-ci.com/mihanizm56/Loft-Taxi)
