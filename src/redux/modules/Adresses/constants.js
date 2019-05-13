@@ -1,0 +1,2 @@
+export const UPDATE_COORDS = 'UPDATE_COORDS';
+export const REMOVE_COORDS = 'REMOVE_COORDS';
