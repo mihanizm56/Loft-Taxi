@@ -8,18 +8,18 @@ class WrappedContainer extends Component {
 	}
 
 	render() {
-		const { children } = this.props;
+		const { children, ...restProps } = this.props;
 
-		return React.Children.map(children, child => React.cloneElement(child, { ...this.props }));
+		return React.Children.map(children, child => React.cloneElement(child, { ...restProps }));
 	}
 }
 
 export const AuthFormProvider = reduxForm({
-	validate: ({ email, password }) => {
-		const errors = {};
-		if (!email) errors.email = "Failed email";
-		if (!password) errors.password = "Failed password";
-		return errors;
-	},
+	// validate: ({ email, password }) => {
+	// 	const errors = {};
+	// 	if (!email) errors.email = "Failed email";
+	// 	if (!password) errors.password = "Failed password";
+	// 	return errors;
+	// },
 	form: "auth",
 })(WrappedContainer);

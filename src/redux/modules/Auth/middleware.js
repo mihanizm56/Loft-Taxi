@@ -9,9 +9,17 @@ export const loginRequestAction = (email, password) => {
 		return dispatch => {
 			dispatch(loginPendingAction());
 
-			return sleep().then(data => dispatch(loginSuccessAction()));
+			// return sleep().then(data => dispatch(loginSuccessAction()));
 
-			// return fetchLoginRequest(email, password).then(data => console.log(data));
+			return fetchLoginRequest(email, password)
+				.then(({ success }) => {
+					if (success) {
+						dispatch(loginSuccessAction());
+					} else {
+						dispatch(loginFailedAction());
+					}
+				})
+				.catch(error => dispatch(loginFailedAction()) || alert(error));
 		};
 	}
 };

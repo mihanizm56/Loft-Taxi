@@ -8,5 +8,5 @@ export const sleep = data => {
 };
 
 export const fetchLoginRequest = (email, password) => {
-	return fetch(` https://loft-taxi.glitch.me/auth?username=${email}&password=${password}`);
+	return fetch(` https://loft-taxi.glitch.me/auth?username=${email}&password=${password}`).then(data => data.json());
 };

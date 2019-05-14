@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { MainWrapper } from "../../components/organisms";
+import { MainWrapper } from "../../components";
 import "./App.css";
 
 export const App = memo(() => {

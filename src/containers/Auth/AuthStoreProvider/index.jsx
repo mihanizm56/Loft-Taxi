@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { loginRequestAction, logoutAction, getLoginState } from "../../../redux/modules/Auth";
+import { loginRequestAction, logoutAction, getLoginState, getLoginError } from "../../../redux/modules/Auth";
 
 class WrappedContainer extends Component {
 	static defaultProps = {
@@ -12,12 +12,20 @@ class WrappedContainer extends Component {
 		console.log(this.props);
 	}
 
-	render = () => {
-		const loginSucceed = this.props.loginState || localStorage.login === "true";
-		const { children, ...restProps } = this.props;
-
-		return React.Children.map(children, child => React.cloneElement(child, { loginState: loginSucceed, ...restProps }));
+	signInUser = ({ email, password }) => {
+		console.log("signInUser", email, password);
+		this.props.signIn(email, password);
 	};
+
+	signOutUser = () => {};
+
+	render() {
+		const { children, signIn, signOut, ...restProps } = this.props;
+
+		return React.Children.map(children, child =>
+			React.cloneElement(child, { signInUser: this.signInUser, signOutUser: this.signOutUser, ...restProps })
+		);
+	}
 }
 
 const mapStateToProps = store => {

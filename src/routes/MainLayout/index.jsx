@@ -1,25 +1,17 @@
 import React from "react";
 import { Switch, Redirect } from "react-router-dom";
-import { IndexPageRoute } from "../IndexPageRoute";
-import { ProfilePageRoute } from "../ProfilePageRoute";
-import { LoginPageRoute } from "../LoginPageRoute";
-
-const renderNormalLayout = props => (
-	<Switch>
-		<IndexPageRoute exact path="/" {...props} />
-		<IndexPageRoute exact path="/map" {...props} />
-		<ProfilePageRoute exact path="/profile" {...props} />
-		<Redirect to="/map" />
-	</Switch>
-);
-
-const renderLoginLayout = props => <LoginPageRoute exact path="/login" {...props} />;
+import { LoginPageRoute } from "../PageRoutes";
+import { PrivateRoute } from "../PageRoutes/PrivateRoutes";
 
 export const MainLayout = props => {
-	console.log("пропсы в MainLayout", props);
-
 	const { loggedIn, loginError } = props;
-	const logined = loggedIn && !loggedIn;
+	console.log("пропсы в MainLayout", props);
+	console.log("logined в MainLayout", loggedIn && !loginError);
 
-	return logined ? renderNormalLayout(props) : renderLoginLayout(props);
+	return (
+		<Switch>
+			<LoginPageRoute exact path="/login" {...props} />
+			<PrivateRoute {...props} />
+		</Switch>
+	);
 };

@@ -1,6 +1,5 @@
 //
 import React, { memo } from "react";
-import { OpenSansText } from "../../texts";
 import "./Button.css";
 
 type ButtonPropsType = {
@@ -11,7 +10,8 @@ type ButtonPropsType = {
 
 export const Button = memo(({ handleClick, buttonType }: ButtonPropsType) => {
 	return (
-		<button className={classname} onClick={handleClick} type={buttonType}>
+		// <>test</>
+		<button onClick={handleClick} type={buttonType}>
 			Button
 		</button>
 	);

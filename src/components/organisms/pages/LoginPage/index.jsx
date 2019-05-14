@@ -1,4 +1,4 @@
 import React from "react";
 import { AuthForm } from "../../../molecules";
 
-export const IndexPage = props => <AuthForm {...props} />;
+export const LoginPage = props => <AuthForm {...props} />;

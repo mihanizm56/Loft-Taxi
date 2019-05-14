@@ -1,14 +1,15 @@
-import {
-    INPUT_NAME_OF_CARD,
-    INPUT_END_DATE_OF_CARD,
-    INPUT_NUMBER_OF_CARD,
-    INPUT_SECRET_CODE_OF_CARD
-} from './constants';
+import { INPUT_DATA_OF_CARD, RESET_DATA_OF_CARD, OPEN_CARD_FORM } from "./constants";
 
-export const saveNameOfCardAction = name => ({type: INPUT_NAME_OF_CARD, payload: name});
+export const saveDataOfCardAction = (cardName, expDate, cardNumber, cvv) => ({
+	type: INPUT_DATA_OF_CARD,
+	payload: {
+		cardName,
+		expDate,
+		cardNumber,
+		cvv,
+	},
+});
 
-export const saveEndDateOfCardAction = date => ({type: INPUT_END_DATE_OF_CARD, payload: date});
-
-export const saveNumberOfCardAction = number => ({type: INPUT_NUMBER_OF_CARD, payload: number});
-
-export const saveSecretCodeOfCardAction = code => ({type: INPUT_SECRET_CODE_OF_CARD, payload: code});
+export const openFormCardAction = () => ({
+	type: OPEN_CARD_FORM,
+});
