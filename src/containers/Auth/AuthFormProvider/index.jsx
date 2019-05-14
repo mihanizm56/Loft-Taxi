@@ -11,15 +11,14 @@ class WrappedContainer extends Component {
 		const { children } = this.props;
 
 		return React.Children.map(children, child => React.cloneElement(child, { ...this.props }));
-	};
+	}
 }
 
 export const AuthFormProvider = reduxForm({
-	validate: ({ email, password, name }) => {
+	validate: ({ email, password }) => {
 		const errors = {};
 		if (!email) errors.email = "Failed email";
 		if (!password) errors.password = "Failed password";
-		if (!name) errors.password = "Failed name";
 		return errors;
 	},
 	form: "auth",

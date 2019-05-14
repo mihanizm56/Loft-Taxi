@@ -1,0 +1,298 @@
+/* убрать после рефакторинга стилей */
+
+button {
+    background-color: #fff;
+    outline: none;
+}
+
+/* ButtonForOffer */
+
+.button-offer-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 2px solid black;
+    transition: .5s;
+}
+
+.button-offer-wrapper:hover {
+    background-color: #444444;
+}
+
+.button-offer-wrapper:active {
+    background-color: #444444;
+}
+
+.button-offer-wrapper:hover .open-sans-text--text-button {
+    color: #fff;
+}
+
+.button-offer-wrapper:active .open-sans-text--text-button {
+    color: #fff;
+    opacity: 0.3;
+}
+
+@media (max-width: 767px) {
+    .button-offer-wrapper {
+        height: 50px;
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .button-offer-wrapper {
+        height: 50px;
+        width: 583px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .button-offer-wrapper {
+        height: 50px;
+        width: 230px;
+    }
+}
+
+/* ButtonWriteReview */
+
+.button-write-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 2px solid black;
+    transition: .5s;
+}
+
+.button-write-wrapper:hover {
+    background-color: #444444;
+}
+
+.button-write-wrapper:active {
+    background-color: #444444;
+}
+
+.button-write-wrapper:hover .open-sans-text--text-button {
+    color: #fff;
+}
+
+.button-write-wrapper:active .text-button {
+    color: #fff;
+    opacity: 0.3;
+}
+
+@media (max-width: 767px) {
+    .button-write-wrapper {
+        height: 50px;
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .button-write-wrapper {
+        height: 50px;
+        width: 175px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .button-write-wrapper {
+        height: 50px;
+        width: 175px;
+    }
+}
+
+/* ButtonForWeeklyHitBox */
+
+.button-weekly {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 2px solid black;
+    transition: .5s;
+    width: 98%;
+    height: 50px;
+    margin-top: 35px;
+}
+
+.button-weekly:hover {
+    background-color: #444444;
+}
+
+.button-weekly:active {
+    background-color: #444444;
+}
+
+.button-weekly:hover .open-sans-text--text-button {
+    color: #fff;
+}
+
+.button-weekly:active .text-button {
+    color: #fff;
+    opacity: 0.3;
+}
+
+/* ButtonForSendOffer */
+
+.button-send {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 2px solid black;
+    transition: .5s;
+}
+
+.button-send:hover {
+    background-color: #444444;
+}
+
+.button-send:active {
+    background-color: #444444;
+}
+
+.button-send:hover .open-sans-text--text-button {
+    color: #fff;
+}
+
+.button-send:active .text-button {
+    color: #fff;
+    opacity: 0.3;
+}
+
+@media (max-width: 767px) {
+    .button-send {
+        height: 50px;
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .button-send {
+        height: 50px;
+        width: 230px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .button-send {
+        height: 50px;
+        width: 230px;
+    }
+}
+
+/* ButtonForAuthModal */
+
+.button-auth-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 2px solid black;
+    transition: .5s;
+    height: 50px;
+    width: 100%;
+}
+
+.button-auth-modal:hover {
+    background-color: #444444;
+}
+
+.button-auth-modal:active {
+    background-color: #444444;
+}
+
+.button-auth-modal:hover .open-sans-text--text-button {
+    color: #fff;
+}
+
+.button-auth-modal:active .text-button {
+    color: #fff;
+    opacity: 0.3;
+}
+
+@media (max-width: 767px) {
+    .button-auth-modal {}
+}
+
+@media (min-width: 768px) {
+    .button-auth-modal {}
+}
+
+@media (min-width: 1200px) {
+    .button-auth-modal {}
+}
+
+/* ButtonForSignIn */
+
+.sign-in-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid black;
+    transition: .5s;
+    border-radius: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+.sign-in-button:hover {
+    background-color: #444444;
+}
+
+.sign-in-button:active {
+    background-color: #fff;
+}
+
+.sign-in-button:hover .open-sans-text--text-button {
+    color: #fff;
+}
+
+.sign-in-button:active .text-button {
+    color: #fff;
+    opacity: 0.3;
+}
+
+@media (max-width: 767px) {
+    .sign-in-button{}
+}
+
+/* ButtonForSignOut */
+
+.sign-out-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid black;
+    transition: .5s;
+    border-radius: 10px;
+    height: 40px;
+    width: 70px;
+}
+
+.sign-out-button:hover {
+    background-color: #444444;
+}
+
+.sign-out-button:active {
+    background-color: #fff;
+}
+
+.sign-out-button:hover .open-sans-text--text-button {
+    color: #fff;
+}
+
+.sign-out-button:active .text-button {
+    color: #fff;
+    opacity: 0.3;
+}
+
+@media (max-width: 767px) {
+    .sign-out-button{}
+}
+
+

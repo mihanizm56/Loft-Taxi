@@ -1,15 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {
-	loginRequestAction,
-	signOutFirebaseAction,
-	loginStateSelector,
-	userNameSelector,
-	errorAuthSelector,
-	errorAuthClearAction,
-} from "../../../redux/modules/loginReducer";
-import { openAuthModalAction, closeAuthModalAction } from "../../../redux/modules/modalAuth";
-import { loadingSelector } from "../../../redux/modules/appLoading";
+import { loginRequestAction, logoutAction, getLoginState } from "../../../redux/modules/Auth";
 
 class WrappedContainer extends Component {
 	static defaultProps = {
@@ -17,8 +8,8 @@ class WrappedContainer extends Component {
 	};
 
 	componentDidMount() {
-		// console.log("check AuthStoreProvider props");
-		// console.log(this.props);
+		console.log("check AuthStoreProvider props");
+		console.log(this.props);
 	}
 
 	render = () => {
@@ -31,21 +22,19 @@ class WrappedContainer extends Component {
 
 const mapStateToProps = store => {
 	return {
-		isLoading: loadingSelector(store),
-		loginState: loginStateSelector(store),
-		userName: userNameSelector(store),
-		errorAuth: errorAuthSelector(store),
+		loggedIn: getLoginState(store),
+		loginError: getLoginError(store),
 	};
 };
 
 const mapDispatchToProps = dispatch => {
 	return {
-		signInFunc(email, password) {
+		signIn(email, password) {
 			dispatch(loginRequestAction(email, password));
 		},
-		signOutFunc() {
-			dispatch(signOutFirebaseAction());
-		}
+		signOut() {
+			dispatch(logoutAction());
+		},
 	};
 };
 

@@ -1,10 +1,12 @@
-import React, { Component } from 'react';
-// import { MainWrapper } from '../../components/organisms';
-import './App.css';
-import '../../styles/keyframes/keyframes.css';
+import React, { memo } from "react";
+import { MainWrapper } from "../../components/organisms";
+import "./App.css";
 
-export class App extends Component {
-    render() {
-        return <>Hello</>;
-    }
-}
+export const App = memo(() => {
+	// console.log("MainWrapper props", props);
+	return (
+		<div className="global-wrapper">
+			<MainWrapper />
+		</div>
+	);
+});

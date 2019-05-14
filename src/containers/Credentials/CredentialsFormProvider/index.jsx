@@ -1,5 +1,5 @@
-import React, { Component } from "./node_modules/react";
-import { reduxForm } from "./node_modules/redux-form";
+import React, { Component } from "react";
+import { reduxForm } from "redux-form";
 
 class WrappedContainer extends Component {
 	componentDidMount() {
@@ -11,7 +11,7 @@ class WrappedContainer extends Component {
 		const { children } = this.props;
 
 		return React.Children.map(children, child => React.cloneElement(child, { ...this.props }));
-	};
+	}
 }
 
 export const CredentialsFormProvider = reduxForm({

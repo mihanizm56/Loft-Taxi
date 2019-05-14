@@ -1,16 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-// import { Provider } from 'react-redux';
-// import { createAppStore } from './redux/store';
-import { App } from './containers';
-import './styles/main.css';
-import './fonts/index.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { createAppStore } from "./redux/store";
+import { BrowserRouter } from "react-router-dom";
+import { App } from "./containers";
+import "./styles/main.css";
+import "./fonts/index.css";
 
-const ROOT_ELEMENT = document.getElementById('root');
+const ROOT_ELEMENT = document.getElementById("root");
 
-// const store = createAppStore();
+const store = createAppStore();
 
 ReactDOM.render(
-    <App />,
-    ROOT_ELEMENT
+	<Provider store={store}>
+		<BrowserRouter>
+			<App />
+		</BrowserRouter>
+	</Provider>,
+	ROOT_ELEMENT
 );
