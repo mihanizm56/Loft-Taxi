@@ -11,8 +11,7 @@ export const CredentialsForm = props => {
 
 	return (
 		<form onSubmit={handleSubmit(saveUserCard)}>
-			<h1 className="credentials-form__title">Профиль</h1>
-			<h6 className="credentials-form__subtitle">Способ оплаты</h6>
+			<h6 className="credentials__subtitle">Способ оплаты</h6>
 			<div className="credentials-form__col-container">
 				<div className="credentials-form__row-container">
 					<div className="credentials-form__item">

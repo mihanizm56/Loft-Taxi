@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import { OfferCreateBox, AddressForm } from "../../../../../components";
+import { OfferCreateBox, AddressForm } from "../../../..";
+import "./AddressLayout.css";
 
 const renderAddressForm = props => <AddressForm {...props} />;
 
@@ -14,18 +15,13 @@ const renderRedirectToCredentials = () => (
 );
 
 export const AddressLayout = ({ offerDoneStatus, createNewOffer, credentialsValid, ...restProps }) => {
-	if (!credentialsValid) {
-		return renderRedirectToCredentials(createNewOffer);
-	}
-
-	if (credentialsValid && !offerDoneStatus) {
-		return renderAddressForm(restProps);
-	}
-
-	if (credentialsValid && offerDoneStatus) {
-		return renderOfferCreateBox(createNewOffer);
-	}
-	return !offerDoneStatus ? renderAddressForm(restProps) : renderOfferCreateBox(createNewOffer);
+	return (
+		<div className="address-layout-wrapper">
+			{!credentialsValid && renderRedirectToCredentials(createNewOffer)}
+			{credentialsValid && !offerDoneStatus && renderAddressForm(restProps)}
+			{credentialsValid && offerDoneStatus && renderOfferCreateBox(createNewOffer)}
+		</div>
+	);
 };
 
 AddressLayout.defaultProps = {

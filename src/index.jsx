@@ -5,6 +5,7 @@ import { createAppStore } from "./redux/store";
 import { BrowserRouter } from "react-router-dom";
 import { App } from "./containers";
 import "./styles/main.css";
+import "./styles/shared.css";
 import "./fonts/index.css";
 
 const ROOT_ELEMENT = document.getElementById("root");

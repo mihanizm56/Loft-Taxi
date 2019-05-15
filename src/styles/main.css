@@ -21,15 +21,3 @@ body {
     flex-direction: column;
     justify-content: flex-start;
 }
-
-.layout-page {
-    background-color: #ddd;
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.layout-page--up-fixed {
-    align-items: flex-start;
-}

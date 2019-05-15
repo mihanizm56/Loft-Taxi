@@ -4,12 +4,14 @@ import { AddressLayout } from "../../../../components";
 
 export const IndexPage = props => {
 	return (
-		<CredentialsStoreProvider>
-			<AddressesStoreProvider>
-				<AddressesFormProvider>
-					<AddressLayout {...props} />
-				</AddressesFormProvider>
-			</AddressesStoreProvider>
-		</CredentialsStoreProvider>
+		<div className="layout-page layout-page--up-fixed layout-page--left-fixed">
+			<CredentialsStoreProvider>
+				<AddressesStoreProvider>
+					<AddressesFormProvider>
+						<AddressLayout {...props} />
+					</AddressesFormProvider>
+				</AddressesStoreProvider>
+			</CredentialsStoreProvider>
+		</div>
 	);
 };

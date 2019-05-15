@@ -14,10 +14,10 @@ export const AuthForm = props => {
 		<div className="auth-form-wrapper">
 			<form onSubmit={handleSubmit(signInUser)} className="auth-form">
 				<h1 className="auth-form__title">Войти</h1>
-				<div className="auth-form__field">
+				<div className="form__field">
 					<Field name="email" component={renderTextField} normalize={normalizeEmail} label="Имя пользователя *" />
 				</div>
-				<div className="auth-form__field">
+				<div className="form__field">
 					<Field
 						name="password"
 						type="password"
