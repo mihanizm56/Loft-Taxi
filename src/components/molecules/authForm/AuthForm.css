@@ -1,0 +1,32 @@
+.auth-form-wrapper {
+    border: 1px solid blue;
+    padding: 24px;
+    background-color: #fff;
+    width: 300px;
+}
+
+.auth-form {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.auth-form__title {
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 2.125rem;
+    font-family: "OpenSans", "Verdana", "Arial", sans-serif;
+    font-weight: 400;
+    line-height: 1.17;
+    letter-spacing: 0.00735em;
+    align-self: center;
+}
+
+.auth-form__field {
+    padding: 12px;
+}
+
+.auth-form__button {
+    padding: 12px;
+    align-self: center;
+}

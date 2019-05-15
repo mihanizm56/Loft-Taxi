@@ -1,10 +1,12 @@
 import React from "react";
-import { Button } from "../../../components";
+import Button from "@material-ui/core/Button";
 
 export const UserButton = ({ loggedIn, signInUser, signOutUser }) => {
 	return loggedIn ? (
-		<Button text="Выйти" handleClick={signOutUser} />
+		<Button color="primary" onClick={signOutUser}>
+			Выйти
+		</Button>
 	) : (
-		<Button text="Войти" handleClick={signInUser} />
+		<Button color="primary">Войти</Button>
 	);
 };

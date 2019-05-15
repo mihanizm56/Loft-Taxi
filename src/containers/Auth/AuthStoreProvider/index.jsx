@@ -13,8 +13,10 @@ class WrappedContainer extends Component {
 	}
 
 	signInUser = ({ email, password }) => {
-		console.log("signInUser", email, password);
-		this.props.signIn(email, password);
+		if (email && password) {
+			console.log("signInUser", email, password);
+			this.props.signIn(email, password);
+		}
 	};
 
 	signOutUser = () => {

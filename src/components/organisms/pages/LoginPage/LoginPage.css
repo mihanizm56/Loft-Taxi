@@ -1,0 +1,7 @@
+.login-page-wrapper {
+    background-color: #ddd;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

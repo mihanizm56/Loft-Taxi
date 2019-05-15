@@ -1,0 +1,22 @@
+.header-wrapper {
+    height: 64px;
+    padding: 0 24px 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid green;
+}
+
+.header__title {
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 1.3125rem;
+    font-weight: 500;
+    font-family: "OpenSans", "Verdana", sans-serif;
+    line-height: 1.16667em;
+}
+
+.header-button-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
