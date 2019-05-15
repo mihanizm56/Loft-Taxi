@@ -1,4 +1,4 @@
-import { INPUT_DATA_OF_CARD, RESET_DATA_OF_CARD, OPEN_CARD_FORM } from "./constants";
+import { INPUT_DATA_OF_CARD, CLEAR_CARD_DATA, OPEN_CARD_FORM } from "./constants";
 
 export const saveDataOfCardAction = (cardName, expDate, cardNumber, cvv) => ({
 	type: INPUT_DATA_OF_CARD,
@@ -11,5 +11,9 @@ export const saveDataOfCardAction = (cardName, expDate, cardNumber, cvv) => ({
 });
 
 export const openFormCardAction = () => ({
+	type: OPEN_CARD_FORM,
+});
+
+export const clearCardDataAction = () => ({
 	type: OPEN_CARD_FORM,
 });

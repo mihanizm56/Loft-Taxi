@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { loginRequestAction, logoutAction, getLoginState, getLoginError } from "../../../redux/modules/Auth";
-
+import { clearCardDataAction } from "../../../redux/modules/Credentials";
 class WrappedContainer extends Component {
 	static defaultProps = {
 		signInFunc: () => console.log("default signInFunc"),
@@ -48,6 +48,7 @@ const mapDispatchToProps = dispatch => {
 		},
 		signOut() {
 			dispatch(logoutAction());
+			dispatch(clearCardDataAction());
 		},
 	};
 };

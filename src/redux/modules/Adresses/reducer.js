@@ -6,7 +6,7 @@ const initialState = {
 		to: null,
 	},
 	allRoutes: [],
-	offerDone: true,
+	offerDone: false,
 };
 
 const routeMapReducer = (state = initialState, action) => {

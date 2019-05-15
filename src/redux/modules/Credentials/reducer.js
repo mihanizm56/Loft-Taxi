@@ -1,11 +1,11 @@
-import { INPUT_DATA_OF_CARD, RESET_DATA_OF_CARD, OPEN_CARD_FORM, CLOSE_CARD_FORM } from "./constants";
+import { INPUT_DATA_OF_CARD, CLEAR_CARD_DATA, OPEN_CARD_FORM, CLOSE_CARD_FORM } from "./constants";
 
 const initState = {
 	card: {
-		cardName: null,
-		expDate: null,
-		cardNumber: null,
-		cvv: null,
+		cardName: 1,
+		expDate: "11.12.2020",
+		cardNumber: 1,
+		cvv: 1,
 	},
 	formOpen: false,
 };
@@ -25,7 +25,7 @@ const сredentialsReducer = (state = initState, action) => {
 				formOpen: false,
 			};
 
-		case RESET_DATA_OF_CARD:
+		case CLEAR_CARD_DATA:
 			return {
 				...state,
 				card: {

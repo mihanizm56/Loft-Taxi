@@ -29,3 +29,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.layout-page--up-fixed {
+    align-items: flex-start;
+}

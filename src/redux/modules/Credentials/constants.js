@@ -1,3 +1,3 @@
 export const INPUT_DATA_OF_CARD = "INPUT_DATA_OF_CARD";
-export const RESET_DATA_OF_CARD = "RESET_DATA_OF_CARD";
+export const CLEAR_CARD_DATA = "CLEAR_CARD_DATA";
 export const OPEN_CARD_FORM = "OPEN_CARD_FORM";

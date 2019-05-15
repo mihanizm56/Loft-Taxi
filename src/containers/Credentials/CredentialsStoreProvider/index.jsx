@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { isEqual } from "lodash";
 import {
 	getCardNameState,
 	getExpDateState,
@@ -29,10 +30,23 @@ class WrappedContainer extends Component {
 	};
 
 	render() {
-		const { children, saveCardData, openFormCard, ...restProps } = this.props;
+		const { children, saveCardData, openFormCard, cardName, expDate, cardNumber, cvv, ...restProps } = this.props;
+
+		const credentialsValid = cardName && expDate && cardNumber && cvv;
+		const credentialsValues = {
+			cardName,
+			expDate,
+			cardNumber,
+			cvv,
+		};
 
 		return React.Children.map(children, child =>
-			React.cloneElement(child, { saveUserCard: this.saveUserCard, ...restProps })
+			React.cloneElement(child, {
+				saveUserCard: this.saveUserCard,
+				credentialsValid,
+				...credentialsValues,
+				...restProps,
+			})
 		);
 	}
 }

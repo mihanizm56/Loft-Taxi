@@ -4,7 +4,7 @@ import { CredentialLayout } from "../../../../components";
 
 export const ProfilePage = props => {
 	return (
-		<div className="layout-page">
+		<div className="layout-page layout-page--up-fixed">
 			<CredentialsStoreProvider>
 				<CredentialsFormProvider>
 					<CredentialLayout {...props} />
