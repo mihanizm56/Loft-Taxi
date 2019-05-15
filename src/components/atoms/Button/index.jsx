@@ -2,12 +2,12 @@
 import React, { memo } from "react";
 import "./Button.css";
 
-export const Button = memo(({ handleClick, buttonType }: ButtonPropsType) => {
+export const Button = memo(({ handleClick, buttonType, text }: ButtonPropsType) => {
 	console.log("handleClick in Button", handleClick);
 	return (
 		// <>test</>
 		<button onClick={handleClick} type={buttonType}>
-			Button
+			{text || "Button"}
 		</button>
 	);
 });

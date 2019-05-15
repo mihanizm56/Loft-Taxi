@@ -17,13 +17,17 @@ class WrappedContainer extends Component {
 		this.props.signIn(email, password);
 	};
 
-	signOutUser = () => {};
+	signOutUser = () => {
+		console.log("signOutUser");
+		this.props.signOut();
+	};
 
 	render() {
-		const { children, signIn, signOut, ...restProps } = this.props;
+		const { children, signIn, signOut, loggedIn: loggedInStore, loginError, ...restProps } = this.props;
+		const loggedIn = loggedInStore && !loginError;
 
 		return React.Children.map(children, child =>
-			React.cloneElement(child, { signInUser: this.signInUser, signOutUser: this.signOutUser, ...restProps })
+			React.cloneElement(child, { signInUser: this.signInUser, loggedIn, signOutUser: this.signOutUser, ...restProps })
 		);
 	}
 }

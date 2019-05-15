@@ -1,4 +1,4 @@
-import { loginPendingAction, loginSuccessAction, loginFailedAction } from "./actions";
+import { loginSuccessAction, loginFailedAction } from "./actions";
 import { sleep, fetchLoginRequest } from "../../../utils";
 
 export const loginRequestAction = (email, password) => {
@@ -7,8 +7,6 @@ export const loginRequestAction = (email, password) => {
 
 	if (email && password) {
 		return dispatch => {
-			dispatch(loginPendingAction());
-
 			// return sleep().then(data => dispatch(loginSuccessAction()));
 
 			return fetchLoginRequest(email, password)
