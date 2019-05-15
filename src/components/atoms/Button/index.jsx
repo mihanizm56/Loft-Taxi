@@ -2,13 +2,8 @@
 import React, { memo } from "react";
 import "./Button.css";
 
-type ButtonPropsType = {
-	handleClick: () => void,
-	text: string,
-	classname: string,
-};
-
 export const Button = memo(({ handleClick, buttonType }: ButtonPropsType) => {
+	console.log("handleClick in Button", handleClick);
 	return (
 		// <>test</>
 		<button onClick={handleClick} type={buttonType}>

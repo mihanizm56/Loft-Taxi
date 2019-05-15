@@ -1,2 +1,4 @@
-export const UPDATE_COORDS = 'UPDATE_COORDS';
-export const REMOVE_COORDS = 'REMOVE_COORDS';
+export const REMOVE_COORDS = "REMOVE_COORDS";
+export const CHOOSE_COORDS = "CHOOSE_COORDS";
+export const SAVE_ALL_ROUTES = "SAVE_ALL_ROUTES";
+export const MAKE_NEW_OFFER = "MAKE_NEW_OFFER";

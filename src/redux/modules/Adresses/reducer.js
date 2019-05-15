@@ -1,22 +1,52 @@
-import {
-    UPDATE_COORDS,
-    REMOVE_COORDS
-} from './constants';
+import { REMOVE_COORDS, CHOOSE_COORDS, SAVE_ALL_ROUTES, MAKE_NEW_OFFER } from "./constants";
 
 const initialState = {
-    routeCoords: []
+	route: {
+		from: null,
+		to: null,
+	},
+	allRoutes: [],
+	offerDone: true,
 };
 
 const routeMapReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case UPDATE_COORDS:
-            return { ...state, routeCoords: action.payload };
-        case REMOVE_COORDS:
-            return { ...state, routeCoords: [] };
+	switch (action.type) {
+		case REMOVE_COORDS:
+			return {
+				...state,
+				route: {
+					...state.route,
+					from: null,
+					to: null,
+				},
+			};
 
-        default:
-            return state;
-    }
+		case CHOOSE_COORDS:
+			return {
+				...state,
+				route: {
+					...state.route,
+					from: action.payload.from,
+					to: action.payload.to,
+				},
+				offerDone: true,
+			};
+
+		case SAVE_ALL_ROUTES:
+			return {
+				...state,
+				allRoutes: action.payload.routes,
+			};
+
+		case MAKE_NEW_OFFER:
+			return {
+				...state,
+				offerDone: false,
+			};
+
+		default:
+			return state;
+	}
 };
 
 export default routeMapReducer;

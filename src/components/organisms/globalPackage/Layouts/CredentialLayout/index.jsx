@@ -3,7 +3,7 @@ import { CredentialsForm, CredentialsRedirectBox } from "../../../../../componen
 
 const renderCredentialForm = props => <CredentialsForm {...props} />;
 
-const renderRedirectBox = props => <CredentialsRedirectBox {...props} />;
+const renderRedirectBox = props => <CredentialsRedirectBox />;
 
 export const CredentialLayout = ({ openedCredentialForm, ...restProps }) => {
 	return openedCredentialForm ? renderCredentialForm(restProps) : renderRedirectBox();

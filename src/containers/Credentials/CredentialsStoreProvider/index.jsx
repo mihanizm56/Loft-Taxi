@@ -12,7 +12,8 @@ import {
 
 class WrappedContainer extends Component {
 	static defaultProps = {
-		signInFunc: () => console.log("default signInFunc"),
+		saveCardData: () => console.log("default saveCardData"),
+		openFormCard: () => console.log("default openFormCard"),
 	};
 
 	componentDidMount() {
