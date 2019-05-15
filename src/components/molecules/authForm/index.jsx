@@ -2,12 +2,8 @@ import React from "react";
 import { Field } from "redux-form";
 import { InputComponent } from "../../atoms";
 import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
+import { renderTextField } from "../../atoms";
 import "./AuthForm.css";
-
-const renderTextField = ({ input, label, meta: { touched, error }, ...custom }) => (
-	<TextField fullWidth={true} label={label} errorText={touched && error} {...input} {...custom} />
-);
 
 export const AuthForm = props => {
 	console.log("props AuthForm", props);

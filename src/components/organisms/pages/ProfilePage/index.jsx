@@ -4,10 +4,12 @@ import { CredentialLayout } from "../../../../components";
 
 export const ProfilePage = props => {
 	return (
-		<CredentialsStoreProvider>
-			<CredentialsFormProvider>
-				<CredentialLayout {...props} />
-			</CredentialsFormProvider>
-		</CredentialsStoreProvider>
+		<div className="layout-page">
+			<CredentialsStoreProvider>
+				<CredentialsFormProvider>
+					<CredentialLayout {...props} />
+				</CredentialsFormProvider>
+			</CredentialsStoreProvider>
+		</div>
 	);
 };

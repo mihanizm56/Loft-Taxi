@@ -4,7 +4,7 @@ import "./LoginPage.css";
 
 export const LoginPage = props => {
 	return (
-		<div className="login-page-wrapper">
+		<div className="layout-page">
 			<AuthForm {...props} />
 		</div>
 	);

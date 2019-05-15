@@ -1,32 +1,63 @@
 import React from "react";
+import Button from "@material-ui/core/Button";
 import { Field } from "redux-form";
-import { InputComponent, Button } from "../../atoms";
+import { renderTextField } from "../../atoms";
 
 export const CredentialsForm = props => {
 	console.log("props AuthForm", props);
 
-	const { saveUserCard, handleSubmit, normalizeCardUser, normalizeCardNumber, normalizeCardCVV } = props;
+	const { saveUserCard, handleSubmit } = props;
 
 	return (
-		<form onSubmit={handleSubmit(saveUserCard)}>
-			<Field
-				component={InputComponent}
-				normalize={normalizeCardUser}
-				placeholder="Введите cardName"
-				type="text"
-				name="cardName"
-			/>
-			<Field component={InputComponent} placeholder="Введите expDate" type="date" name="expDate" />
-			<Field
-				component={InputComponent}
-				normalize={normalizeCardNumber}
-				placeholder="Введите cardNumber"
-				type="text"
-				name="cardNumber"
-			/>
-			<Field component={InputComponent} normalize={normalizeCardCVV} placeholder="Введите cvv" type="text" name="cvv" />
-			<Button buttonType="submit" />
-		</form>
+		<div>
+			<form onSubmit={handleSubmit(saveUserCard)}>
+				<h1 className="credentials-form__title">Профиль</h1>
+				<h6 className="credentials-form__title">Способ оплаты</h6>
+				<div className="credentials-form__container">
+					<div className="credentials-form__item">
+						<Field
+							name="cardName"
+							type="password"
+							// normalize={normalizePassword}
+							component={renderTextField}
+							label="Имя владельца *"
+						/>
+					</div>
+					<div className="credentials-form__item">
+						<Field
+							name="cardNumber"
+							type="password"
+							// normalize={normalizePassword}
+							component={renderTextField}
+							label="Номер карты *"
+						/>
+					</div>
+				</div>
+				<div className="credentials-form__container">
+					<div className="credentials-form__item">
+						<Field
+							name="expDate"
+							type="password"
+							// normalize={normalizePassword}
+							component={renderTextField}
+							label="Дата окончания действия *"
+						/>
+					</div>
+					<div className="credentials-form__item">
+						<Field
+							name="cvv"
+							type="password"
+							// normalize={normalizePassword}
+							component={renderTextField}
+							label="CVV *"
+						/>
+					</div>
+				</div>
+				<div className="credentials-form__button">
+					<Button type="submit">Сохранить</Button>
+				</div>
+			</form>
+		</div>
 	);
 };
 
