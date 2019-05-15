@@ -12,21 +12,12 @@ export class InputComponent extends PureComponent<InputComponentProps> {
 			type,
 			placeholder,
 			input: inputFormListeners,
-			handleChange,
-			value,
 			meta: { touched, error },
+			...restProps
 		} = this.props;
 		return (
 			<>
-				<input
-					{...inputFormListeners}
-					type={type}
-					onChange={({ target: { value } }) =>
-						handleChange ? handleChange(value) : inputFormListeners.onChange(value)
-					}
-					placeholder={placeholder}
-					value={value}
-				/>
+				<input {...inputFormListeners} type={type} placeholder={placeholder} {...restProps} />
 				{touched && (error && <div>{error}</div>)}
 			</>
 		);
