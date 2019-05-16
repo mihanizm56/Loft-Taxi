@@ -52,7 +52,7 @@ export class AddressForm extends Component {
 						<option value="" disabled>
 							Выберите адрес отправления
 						</option>
-						{/* {this.getFullOptionsContent(restProps, fullRoutes)} */}
+						{this.getFullOptionsContent(restProps, fullRoutes)}
 					</Field>
 				</div>
 				<div className="form__field">
@@ -60,7 +60,7 @@ export class AddressForm extends Component {
 						<option value="" disabled>
 							Выберите адрес прибытия
 						</option>
-						{/* {this.getPartOptionsContent(restProps, fullRoutes, fromPath)} */}
+						{this.getPartOptionsContent(restProps, fullRoutes, fromPath)}
 					</Field>
 				</div>
 				<div className="address-form__button">
