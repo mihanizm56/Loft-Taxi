@@ -5,3 +5,4 @@ export * from "./OfferCreateBox";
 export * from "./UserButton";
 export * from "./RedirectToCredentialsBox";
 export * from "./AuthForm";
+export * from "./MapBox";

@@ -1,12 +1,12 @@
 import { createSelector } from "reselect";
 
-const routeState = state => state.routeMapReducer.route;
 const allRoutesState = state => state.routeMapReducer.allRoutes;
 const offerDoneState = state => state.routeMapReducer.offerDone;
+const choosenCoords = state => state.routeMapReducer.choosenRouteCoords;
 
-export const getRouteState = createSelector(
-	[routeState],
-	route => route
+export const getChoosenCoords = createSelector(
+	[choosenCoords],
+	coords => coords
 );
 
 export const getAllRoutesState = createSelector(

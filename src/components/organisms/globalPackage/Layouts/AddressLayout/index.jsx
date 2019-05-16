@@ -1,17 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import { OfferCreateBox, AddressForm, RedirectToCredentialsBox } from "../../../../molecules";
+import { OfferCreateBox, AddressForm, RedirectToCredentialsBox, MapBox } from "../../../../molecules";
 import "./AddressLayout.css";
 
-export const AddressLayout = ({ offerDoneStatus, createNewOffer, credentialsValid, ...restProps }) => {
+export const AddressLayout = ({ offerDoneStatus, createNewOffer, credentialsValid, arrayOfCoords, ...restProps }) => {
 	console.log("AddressLayout props", restProps);
 	return (
-		<div className="address-layout-wrapper">
-			{!credentialsValid && <RedirectToCredentialsBox />}
-			{credentialsValid && !offerDoneStatus && <AddressForm {...restProps} />}
-			{credentialsValid && offerDoneStatus && <OfferCreateBox createNewOffer={createNewOffer} />}
-		</div>
+		<>
+			<MapBox arrayOfCoords={arrayOfCoords} />
+			<div className="address-layout-wrapper">
+				{!credentialsValid && <RedirectToCredentialsBox />}
+				{credentialsValid && !offerDoneStatus && <AddressForm {...restProps} />}
+				{credentialsValid && offerDoneStatus && <OfferCreateBox createNewOffer={createNewOffer} />}
+			</div>
+		</>
 	);
 };
 

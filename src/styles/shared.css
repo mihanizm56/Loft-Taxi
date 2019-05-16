@@ -1,9 +1,10 @@
 .layout-page {
-    background-color: #ddd;
+    background-color: inherit;
     flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .layout-page--up-fixed {

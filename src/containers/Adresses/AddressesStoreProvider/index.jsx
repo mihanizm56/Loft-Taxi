@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import {
-	getRouteState,
 	getAllRoutesState,
 	getOfferDoneState,
 	fetchAllAddressesAction,
 	makeNewOfferAction,
 	fetchCoordsAction,
+	getChoosenCoords,
 } from "../../../redux/modules/Adresses";
 
 class WrappedContainer extends Component {
@@ -45,9 +45,9 @@ class WrappedContainer extends Component {
 
 const mapStateToProps = store => {
 	return {
-		tripRoute: getRouteState(store),
 		allRoutes: getAllRoutesState(store),
 		offerDoneStatus: getOfferDoneState(store),
+		arrayOfCoords: getChoosenCoords(store),
 	};
 };
 
