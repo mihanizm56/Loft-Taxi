@@ -1,18 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import { OfferCreateBox, AddressForm } from "../../../..";
+import { OfferCreateBox, AddressForm, RedirectToCredentialsBox } from "../../../../molecules";
 import "./AddressLayout.css";
 
 const renderAddressForm = props => <AddressForm {...props} />;
 
 const renderOfferCreateBox = createNewOffer => <OfferCreateBox createNewOffer={createNewOffer} />;
 
-const renderRedirectToCredentials = () => (
-	<Button component={Link} to="/profile">
-		Ввести карту пользака
-	</Button>
-);
+const renderRedirectToCredentials = () => <RedirectToCredentialsBox />;
 
 export const AddressLayout = ({ offerDoneStatus, createNewOffer, credentialsValid, ...restProps }) => {
 	return (
