@@ -5,6 +5,7 @@ import { OfferCreateBox, AddressForm, RedirectToCredentialsBox } from "../../../
 import "./AddressLayout.css";
 
 export const AddressLayout = ({ offerDoneStatus, createNewOffer, credentialsValid, ...restProps }) => {
+	console.log("AddressLayout props", restProps);
 	return (
 		<div className="address-layout-wrapper">
 			{!credentialsValid && <RedirectToCredentialsBox />}

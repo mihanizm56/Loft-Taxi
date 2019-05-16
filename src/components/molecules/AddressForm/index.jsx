@@ -18,7 +18,7 @@ export class AddressForm extends Component {
 	getFullOptionsContent = (props, fullRoutes) =>
 		fullRoutes &&
 		fullRoutes.map((item, index) => (
-			<option value={item} key={index} {...props}>
+			<option value={item} key={index}>
 				{item}
 			</option>
 		));
@@ -30,7 +30,7 @@ export class AddressForm extends Component {
 			return this.state.fullRoutes
 				.filter(item => item !== sliceItem)
 				.map((item, index) => (
-					<option value={item} key={index} {...props}>
+					<option value={item} key={index}>
 						{item}
 					</option>
 				));
@@ -42,7 +42,7 @@ export class AddressForm extends Component {
 	render() {
 		console.log("props AddressForm //////////////", this.props);
 		const { fullRoutes } = this.state;
-		const { chooseTripRoute, handleSubmit, from: fromPath, ...restProps } = this.props;
+		const { chooseTripRoute, handleSubmit, fromValue, ...restProps } = this.props;
 
 		return (
 			<form onSubmit={handleSubmit(chooseTripRoute)} className="address-form">
@@ -60,7 +60,7 @@ export class AddressForm extends Component {
 						<option value="" disabled>
 							Выберите адрес прибытия
 						</option>
-						{this.getPartOptionsContent(restProps, fullRoutes, fromPath)}
+						{this.getPartOptionsContent(restProps, fullRoutes, fromValue)}
 					</Field>
 				</div>
 				<div className="address-form__button">

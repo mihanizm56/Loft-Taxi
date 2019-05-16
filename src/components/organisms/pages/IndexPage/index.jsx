@@ -1,5 +1,10 @@
 import React from "react";
-import { AddressesFormProvider, AddressesStoreProvider, CredentialsStoreProvider } from "../../../../containers";
+import {
+	AddressesFormProvider,
+	AddressesStoreProvider,
+	CredentialsStoreProvider,
+	AddressesFormValuesProvider,
+} from "../../../../containers";
 import { AddressLayout } from "../../../../components";
 
 export const IndexPage = props => {
@@ -8,7 +13,9 @@ export const IndexPage = props => {
 			<CredentialsStoreProvider>
 				<AddressesStoreProvider>
 					<AddressesFormProvider>
-						<AddressLayout {...props} />
+						<AddressesFormValuesProvider>
+							<AddressLayout {...props} />
+						</AddressesFormValuesProvider>
 					</AddressesFormProvider>
 				</AddressesStoreProvider>
 			</CredentialsStoreProvider>
