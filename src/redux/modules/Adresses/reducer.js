@@ -1,4 +1,4 @@
-import { REMOVE_COORDS, CHOOSE_COORDS, SAVE_ALL_ROUTES, MAKE_NEW_OFFER } from "./constants";
+import { REMOVE_COORDS, CHOOSE_COORDS, SAVE_ALL_ROUTES, MAKE_NEW_OFFER, SAVE_CHOOSEN_COORDS_ROUTES } from "./constants";
 
 const initialState = {
 	route: {
@@ -7,6 +7,7 @@ const initialState = {
 	},
 	allRoutes: [],
 	offerDone: false,
+	choosenRouteCoords: [],
 };
 
 const routeMapReducer = (state = initialState, action) => {
@@ -36,6 +37,13 @@ const routeMapReducer = (state = initialState, action) => {
 			return {
 				...state,
 				allRoutes: action.payload.routes,
+			};
+
+		case SAVE_CHOOSEN_COORDS_ROUTES:
+			return {
+				...state,
+				choosenRouteCoords: action.payload,
+				offerDone: true,
 			};
 
 		case MAKE_NEW_OFFER:

@@ -5,8 +5,8 @@ import {
 	getAllRoutesState,
 	getOfferDoneState,
 	fetchAllAddressesAction,
-	chooseCoordsTripAction,
 	makeNewOfferAction,
+	fetchCoordsAction,
 } from "../../../redux/modules/Adresses";
 
 class WrappedContainer extends Component {
@@ -57,7 +57,7 @@ const mapDispatchToProps = dispatch => {
 			dispatch(fetchAllAddressesAction());
 		},
 		chooseRoute(from, to) {
-			dispatch(chooseCoordsTripAction(from, to));
+			dispatch(fetchCoordsAction(from, to));
 		},
 		createNewOffer() {
 			dispatch(makeNewOfferAction());

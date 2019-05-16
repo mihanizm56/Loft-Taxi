@@ -42,7 +42,7 @@ export class AddressForm extends Component {
 	render() {
 		console.log("props AddressForm //////////////", this.props);
 		const { fullRoutes } = this.state;
-		const { chooseTripRoute, handleSubmit, fromValue, ...restProps } = this.props;
+		const { chooseTripRoute, handleSubmit, fromValue, toValue, ...restProps } = this.props;
 
 		return (
 			<form onSubmit={handleSubmit(chooseTripRoute)} className="address-form">
@@ -52,7 +52,7 @@ export class AddressForm extends Component {
 						<option value="" disabled>
 							Выберите адрес отправления
 						</option>
-						{this.getFullOptionsContent(restProps, fullRoutes)}
+						{this.getPartOptionsContent(restProps, fullRoutes, toValue)}
 					</Field>
 				</div>
 				<div className="form__field">

@@ -14,3 +14,11 @@ export const fetchLoginRequest = (email, password) => {
 export const fetchAddressesRequest = () => {
 	return fetch("https://loft-taxi.glitch.me/addressList").then(data => data.json());
 };
+
+export const fetchRouteRequest = (routeFrom, routeTo) => {
+	return fetch(
+		`https://loft-taxi.glitch.me/route?address1=${encodeURIComponent(routeFrom)}&address2=${encodeURIComponent(
+			routeTo
+		)}`
+	).then(data => data.json());
+};

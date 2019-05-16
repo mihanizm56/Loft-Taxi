@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { formValueSelector } from "redux-form";
 
-const selector = formValueSelector("addresses"); //////TODO Вынести в отдельный селектор
+const getFromValue = formValueSelector("addresses"); //////TODO Вынести в отдельный селектор
+const getToValue = formValueSelector("addresses"); //////TODO Вынести в отдельный селектор
 
 class WrappedContainer extends Component {
 	render() {
@@ -18,7 +19,8 @@ class WrappedContainer extends Component {
 
 const mapStateToProps = store => {
 	return {
-		fromValue: selector(store, "from"),
+		fromValue: getFromValue(store, "from"),
+		toValue: getToValue(store, "to"),
 	};
 };
 
