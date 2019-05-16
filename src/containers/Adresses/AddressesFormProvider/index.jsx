@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import { getFormValues } from "redux-form";
 import { reduxForm } from "redux-form";
 
 class WrappedContainer extends Component {
 	componentDidMount() {
-		// console.log("check AuthReduxFormProvider store props");
-		// console.log(this.props);
+		console.log("check AddressesFormProvider form props 999999999999999999999");
+		console.log(this.props);
 	}
 
 	render() {
@@ -23,4 +24,5 @@ export const AddressesFormProvider = reduxForm({
 	// 	return errors;
 	// },
 	form: "addresses",
+	// valuesSSSSSSSSSSS: getFormValues("addresses")(store),
 })(WrappedContainer);

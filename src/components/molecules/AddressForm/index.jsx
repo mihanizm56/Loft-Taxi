@@ -1,45 +1,77 @@
-import React from "react";
+import React, { Component } from "react";
 import { Field } from "redux-form";
 import Button from "@material-ui/core/Button";
 import { renderTextField, renderSelect } from "../../atoms";
 import "./AddressForm.css";
 
-export const AddressForm = props => {
-	console.log("props AddressForm", props);
+export class AddressForm extends Component {
+	static getDerivedStateFromProps(nextProps, prevState) {
+		return nextProps.allRoutes && nextProps.allRoutes.length
+			? { ...prevState, fullRoutes: nextProps.allRoutes }
+			: { ...prevState, fullRoutes: [] };
+	}
 
-	const { chooseTripRoute, handleSubmit } = props;
+	state = {
+		fullRoutes: this.props.allRoutes || [],
+	};
 
-	return (
-		<form onSubmit={handleSubmit(chooseTripRoute)} className="address-form">
-			<h1 className="layout__title address__title">Вызов такси</h1>
-			<div className="form__field">
-				<Field name="from" type="text" native component={renderSelect}>
-					<option value="" disabled>
-						Выберите адрес отправления
+	getFullOptionsContent = (props, fullRoutes) =>
+		fullRoutes &&
+		fullRoutes.map((item, index) => (
+			<option value={item} key={index} {...props}>
+				{item}
+			</option>
+		));
+
+	getPartOptionsContent = (props, fullRoutes, sliceItem) => {
+		console.log("test ///////////////", fullRoutes, sliceItem);
+
+		if (fullRoutes && sliceItem) {
+			return this.state.fullRoutes
+				.filter(item => item !== sliceItem)
+				.map((item, index) => (
+					<option value={item} key={index} {...props}>
+						{item}
 					</option>
-					<option value={10}>Ten</option>
-					<option value={20}>Twenty</option>
-					<option value={30}>Thirty</option>
-				</Field>
-			</div>
-			<div className="form__field">
-				<Field name="to" type="text" native component={renderSelect}>
-					<option value="" disabled>
-						Выберите адрес прибытия
-					</option>
-					<option value={10}>Ten</option>
-					<option value={20}>Twenty</option>
-					<option value={30}>Thirty</option>
-				</Field>
-			</div>
-			<div className="address-form__button">
-				<Button type="submit" variant="outlined">
-					Вызвать такси
-				</Button>
-			</div>
-		</form>
-	);
-};
+				));
+		} else {
+			return this.getFullOptionsContent(props, fullRoutes);
+		}
+	};
+
+	render() {
+		console.log("props AddressForm //////////////", this.props);
+		const { fullRoutes } = this.state;
+		const { chooseTripRoute, handleSubmit, from: fromPath, ...restProps } = this.props;
+
+		return (
+			<form onSubmit={handleSubmit(chooseTripRoute)} className="address-form">
+				<h1 className="layout__title address__title">Вызов такси</h1>
+				<div className="form__field">
+					<Field name="from" type="text" native component={renderSelect}>
+						<option value="" disabled>
+							Выберите адрес отправления
+						</option>
+						{/* {this.getFullOptionsContent(restProps, fullRoutes)} */}
+					</Field>
+				</div>
+				<div className="form__field">
+					<Field name="to" type="text" native component={renderSelect}>
+						<option value="" disabled>
+							Выберите адрес прибытия
+						</option>
+						{/* {this.getPartOptionsContent(restProps, fullRoutes, fromPath)} */}
+					</Field>
+				</div>
+				<div className="address-form__button">
+					<Button type="submit" variant="outlined">
+						Вызвать такси
+					</Button>
+				</div>
+			</form>
+		);
+	}
+}
 
 AddressForm.defaultProps = {
 	chooseTripRoute: value => console.log("default signInUser", value),

@@ -6,6 +6,7 @@ export const fetchAllAddressesAction = (email, password) => {
 		// return sleep().then(data => dispatch(loginSuccessAction()));
 
 		return fetchAddressesRequest(email, password).then(({ addresses }) => {
+			console.log("fetched addresses", addresses);
 			if (addresses && addresses.length) {
 				dispatch(saveAllCoordsAction(addresses));
 			} else {
