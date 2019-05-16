@@ -39,13 +39,17 @@ export class AddressForm extends Component {
 		}
 	};
 
+	sendSubmitValues = ({ from, to }) => {
+		from && to && this.props.chooseTripRoute({ from, to });
+	};
+
 	render() {
 		console.log("props AddressForm //////////////", this.props);
 		const { fullRoutes } = this.state;
-		const { chooseTripRoute, handleSubmit, fromValue, toValue, ...restProps } = this.props;
+		const { chooseTripRoute, handleSubmit, fromValue, toValue, reset, ...restProps } = this.props;
 
 		return (
-			<form onSubmit={handleSubmit(chooseTripRoute)} className="address-form">
+			<form onSubmit={handleSubmit(this.sendSubmitValues)} className="address-form">
 				<h1 className="layout__title address__title">Вызов такси</h1>
 				<div className="form__field">
 					<Field name="from" type="text" native component={renderSelect}>

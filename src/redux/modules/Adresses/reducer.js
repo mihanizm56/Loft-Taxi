@@ -25,6 +25,7 @@ const routeMapReducer = (state = initialState, action) => {
 			return {
 				...state,
 				offerDone: false,
+				choosenRouteCoords: [],
 			};
 
 		default:
