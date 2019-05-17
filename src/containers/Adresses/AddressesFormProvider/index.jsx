@@ -3,11 +3,6 @@ import { getFormValues } from "redux-form";
 import { reduxForm } from "redux-form";
 
 class WrappedContainer extends Component {
-	// componentDidMount() {
-	// 	console.log("check AddressesFormProvider form props 999999999999999999999");
-	// 	console.log(this.props);
-	// }
-
 	render() {
 		const { children } = this.props;
 

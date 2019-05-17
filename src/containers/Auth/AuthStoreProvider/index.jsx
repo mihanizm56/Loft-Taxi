@@ -2,25 +2,21 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { loginRequestAction, logoutAction, getLoginState, getLoginError } from "../../../redux/modules/Auth";
 import { clearCardDataAction } from "../../../redux/modules/Credentials";
+import { makeNewOfferAction } from "../../../redux/modules/Adresses";
+import { nullFunc } from "../../../utils";
+
 class WrappedContainer extends Component {
 	static defaultProps = {
-		signInFunc: () => console.log("default signInFunc"),
+		signInFunc: nullFunc,
 	};
-
-	// componentDidMount() {
-	// 	console.log("check AuthStoreProvider props");
-	// 	console.log(this.props);
-	// }
 
 	signInUser = ({ email, password }) => {
 		if (email && password) {
-			console.log("signInUser", email, password);
 			this.props.signIn(email, password);
 		}
 	};
 
 	signOutUser = () => {
-		console.log("signOutUser");
 		this.props.signOut();
 	};
 
@@ -48,7 +44,8 @@ const mapDispatchToProps = dispatch => {
 		},
 		signOut() {
 			dispatch(logoutAction());
-			dispatch(clearCardDataAction());
+			dispatch(clearCardDataAction()); /// из соображений безопасности данный банковской карты
+			dispatch(makeNewOfferAction());
 		},
 	};
 };

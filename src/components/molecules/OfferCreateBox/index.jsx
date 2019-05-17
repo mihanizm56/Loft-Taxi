@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
+import { nullFunc } from "../../../utils";
 import "./OfferCreateBox.css";
 
 export class OfferCreateBox extends Component {
 	static defaultProps = {
-		createNewOffer: () => console.log("default createNewOffer"),
+		createNewOffer: nullFunc,
 	};
 
 	componentDidMount() {

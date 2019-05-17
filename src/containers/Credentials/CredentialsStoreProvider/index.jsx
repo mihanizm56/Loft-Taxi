@@ -1,21 +1,31 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import isEqual from "lodash/isEqual";
-import { saveDataOfCardAction, openFormCardAction, getOpenedFormState } from "../../../redux/modules/Credentials";
+import {
+	saveDataOfCardAction,
+	openFormCardAction,
+	closeFormCardAction,
+	getOpenedFormState,
+	getCardNameState,
+	getExpDateState,
+	getCardNumberState,
+	getCvvState,
+	getShouldFormBeOpened,
+	getValidFormData,
+} from "../../../redux/modules/Credentials";
+import { nullFunc } from "../../../utils";
 
 class WrappedContainer extends Component {
 	static defaultProps = {
-		saveCardData: () => console.log("default saveCardData"),
-		openFormCard: () => console.log("default openFormCard"),
+		saveCardData: () => nullFunc,
+		openFormCard: () => nullFunc,
 	};
 
-	// componentDidMount() {
-	// 	console.log("check CredentialsStoreProvider props");
-	// 	console.log(this.props);
-	// }
-
 	saveUserCard = ({ cardName, expDate, cardNumber, cvv }) => {
-		this.props.saveCardData(cardName, expDate, cardNumber, cvv);
+		const { saveCardData, closeFormCard } = this.props;
+
+		saveCardData(cardName, expDate, cardNumber, cvv);
+		closeFormCard();
 	};
 
 	render() {
@@ -39,7 +49,12 @@ class WrappedContainer extends Component {
 
 const mapStateToProps = store => {
 	return {
-		requireCredentials: getOpenedFormState(store),
+		cardName: getCardNameState(store),
+		expDate: getExpDateState(store),
+		cardNumber: getCardNumberState(store),
+		cvv: getCvvState(store),
+		shouldFormBeOpened: getShouldFormBeOpened(store),
+		isValidFormData: getValidFormData(store),
 	};
 };
 
@@ -50,6 +65,9 @@ const mapDispatchToProps = dispatch => {
 		},
 		openFormCard() {
 			dispatch(openFormCardAction());
+		},
+		closeFormCard() {
+			dispatch(closeFormCardAction());
 		},
 	};
 };

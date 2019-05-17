@@ -11,11 +11,6 @@ const asyncValidate = (values /*, dispatch */) => {
 };
 
 class WrappedContainer extends Component {
-	componentDidMount() {
-		// console.log("check AuthReduxFormProvider store props");
-		// console.log(this.props);
-	}
-
 	normalizeCardUser = value => {
 		value = value.replace(/^\s+/, "");
 

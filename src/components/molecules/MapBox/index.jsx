@@ -43,7 +43,6 @@ export class MapBox extends Component {
 		}
 
 		if (!this.state.coords.length) {
-			console.log("REMOVING THE LAYER");
 			this.removeLayer();
 		}
 	}

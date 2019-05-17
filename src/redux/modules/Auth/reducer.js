@@ -1,7 +1,7 @@
 import { LOGIN_STATE_PENDING, LOGIN_STATE_SUCCESS, LOGIN_STATE_FAILED, LOGOUT } from "./constants";
 
 const initState = {
-	login: true,
+	login: false,
 	error: null,
 };
 

@@ -5,7 +5,6 @@ import { AuthStoreProvider, AuthFormProvider } from "../../../../containers";
 import "./MainWrapper.css";
 
 export const MainWrapper = memo(props => {
-	// console.log("MainWrapper props", props);
 	return (
 		<div className="main-wrapper">
 			<Header />

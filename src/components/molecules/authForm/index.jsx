@@ -3,11 +3,10 @@ import { Field } from "redux-form";
 import { InputComponent } from "../../atoms";
 import Button from "@material-ui/core/Button";
 import { renderTextField } from "../../atoms";
+import { nullFunc } from "../../../utils";
 import "./AuthForm.css";
 
 export const AuthForm = props => {
-	console.log("props AuthForm", props);
-
 	const { signInUser, handleSubmit, normalizeEmail, normalizePassword } = props;
 
 	return (
@@ -35,5 +34,5 @@ export const AuthForm = props => {
 };
 
 AuthForm.defaultProps = {
-	signInUser: value => console.log("default signInUser", value),
+	signInUser: nullFunc,
 };

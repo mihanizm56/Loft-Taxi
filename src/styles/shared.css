@@ -1,10 +1,11 @@
 .layout-page {
-    background-color: inherit;
+    /* background-color: inherit; */
     flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    background-color: #ddd;
 }
 
 .layout-page--up-fixed {

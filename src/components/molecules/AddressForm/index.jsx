@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Field } from "redux-form";
 import Button from "@material-ui/core/Button";
 import { renderTextField, renderSelect } from "../../atoms";
+import { nullFunc } from "../../../utils";
 import "./AddressForm.css";
 
 export class AddressForm extends Component {
@@ -24,8 +25,6 @@ export class AddressForm extends Component {
 		));
 
 	getPartOptionsContent = (props, fullRoutes, sliceItem) => {
-		console.log("test ///////////////", fullRoutes, sliceItem);
-
 		if (fullRoutes && sliceItem) {
 			return this.state.fullRoutes
 				.filter(item => item !== sliceItem)
@@ -44,7 +43,6 @@ export class AddressForm extends Component {
 	};
 
 	render() {
-		console.log("props AddressForm //////////////", this.props);
 		const { fullRoutes } = this.state;
 		const { chooseTripRoute, handleSubmit, fromValue, toValue, reset, ...restProps } = this.props;
 
@@ -78,5 +76,5 @@ export class AddressForm extends Component {
 }
 
 AddressForm.defaultProps = {
-	chooseTripRoute: value => console.log("default signInUser", value),
+	chooseTripRoute: nullFunc,
 };

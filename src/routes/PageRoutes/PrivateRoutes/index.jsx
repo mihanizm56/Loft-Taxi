@@ -6,8 +6,6 @@ import { LoginPageRoute } from "../";
 
 export const PrivateRoute = props => {
 	const { loggedIn, loginError } = props;
-	// console.log("пропсы в PrivateRoute", props);
-	// console.log("logined в PrivateRoute", loggedIn && !loginError);
 
 	const logined = loggedIn && !loginError;
 

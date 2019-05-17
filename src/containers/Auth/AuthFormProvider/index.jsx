@@ -2,11 +2,6 @@ import React, { Component } from "react";
 import { reduxForm } from "redux-form";
 
 class WrappedContainer extends Component {
-	componentDidMount() {
-		// console.log("check AuthReduxFormProvider store props");
-		// console.log(this.props);
-	}
-
 	normalizeEmail = value => value.replace(/^\s+/, "");
 
 	normalizePassword = value => value.replace(/^\s+/, "");

@@ -22,7 +22,6 @@ const сredentialsReducer = (state = initState, action) => {
 					cardNumber: action.payload.cardNumber,
 					cvv: action.payload.cvv,
 				},
-				shouldFormBeOpened: false,
 			};
 
 		case CLEAR_CARD_DATA:
@@ -35,13 +34,18 @@ const сredentialsReducer = (state = initState, action) => {
 					cardNumber: null,
 					cvv: null,
 				},
-				shouldFormBeOpened: true,
 			};
 
 		case OPEN_CARD_FORM:
 			return {
 				...state,
 				shouldFormBeOpened: true,
+			};
+
+		case CLOSE_CARD_FORM:
+			return {
+				...state,
+				shouldFormBeOpened: false,
 			};
 
 		default:

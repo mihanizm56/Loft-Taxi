@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import { UserButton, ProfileButton } from "../../../../components";
-import { AuthStoreProvider, CredentialsStoreProvider } from "../../../../containers";
+import { AuthStoreProvider, CredentialsStoreProvider, AddressesStoreProvider } from "../../../../containers";
 import "./Header.css";
 
-export const Header = () => {
+export const Header = ({ openFormCard }) => {
 	return (
 		<div className="header-wrapper">
 			<h2 className="header__title">Loft-Taxi</h2>
@@ -16,9 +16,11 @@ export const Header = () => {
 				<CredentialsStoreProvider>
 					<ProfileButton />
 				</CredentialsStoreProvider>
-				<AuthStoreProvider>
-					<UserButton />
-				</AuthStoreProvider>
+				<AddressesStoreProvider>
+					<AuthStoreProvider>
+						<UserButton />
+					</AuthStoreProvider>
+				</AddressesStoreProvider>
 			</div>
 		</div>
 	);
