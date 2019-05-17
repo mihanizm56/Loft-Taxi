@@ -7,10 +7,10 @@ class WrappedContainer extends Component {
 		signInFunc: () => console.log("default signInFunc"),
 	};
 
-	componentDidMount() {
-		console.log("check AuthStoreProvider props");
-		console.log(this.props);
-	}
+	// componentDidMount() {
+	// 	console.log("check AuthStoreProvider props");
+	// 	console.log(this.props);
+	// }
 
 	signInUser = ({ email, password }) => {
 		if (email && password) {

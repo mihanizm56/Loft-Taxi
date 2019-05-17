@@ -1,15 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { isEqual } from "lodash";
-import {
-	getCardNameState,
-	getExpDateState,
-	getCardNumberState,
-	getCvvState,
-	saveDataOfCardAction,
-	openFormCardAction,
-	getOpenedFormState,
-} from "../../../redux/modules/Credentials";
+import isEqual from "lodash/isEqual";
+import { saveDataOfCardAction, openFormCardAction, getOpenedFormState } from "../../../redux/modules/Credentials";
 
 class WrappedContainer extends Component {
 	static defaultProps = {
@@ -17,22 +9,17 @@ class WrappedContainer extends Component {
 		openFormCard: () => console.log("default openFormCard"),
 	};
 
-	componentDidMount() {
-		console.log("check CredentialsStoreProvider props");
-		console.log(this.props);
-		this.props.openFormCard();
-	}
+	// componentDidMount() {
+	// 	console.log("check CredentialsStoreProvider props");
+	// 	console.log(this.props);
+	// }
 
 	saveUserCard = ({ cardName, expDate, cardNumber, cvv }) => {
-		// const { cardName, expDate, cardNumber, cvv } = props;
-		// console.log("saveUserCard", props);
 		this.props.saveCardData(cardName, expDate, cardNumber, cvv);
 	};
 
 	render() {
-		const { children, saveCardData, openFormCard, cardName, expDate, cardNumber, cvv, ...restProps } = this.props;
-
-		const credentialsValid = cardName && expDate && cardNumber && cvv;
+		const { children, saveCardData, cardName, expDate, cardNumber, cvv, ...restProps } = this.props;
 		const credentialsValues = {
 			cardName,
 			expDate,
@@ -43,7 +30,6 @@ class WrappedContainer extends Component {
 		return React.Children.map(children, child =>
 			React.cloneElement(child, {
 				saveUserCard: this.saveUserCard,
-				credentialsValid,
 				...credentialsValues,
 				...restProps,
 			})
@@ -53,11 +39,7 @@ class WrappedContainer extends Component {
 
 const mapStateToProps = store => {
 	return {
-		cardName: getCardNameState(store),
-		expDate: getExpDateState(store),
-		cardNumber: getCardNumberState(store),
-		cvv: getCvvState(store),
-		openedCredentialForm: getOpenedFormState(store),
+		requireCredentials: getOpenedFormState(store),
 	};
 };
 

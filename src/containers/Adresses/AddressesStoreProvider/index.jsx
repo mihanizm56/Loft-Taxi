@@ -15,13 +15,13 @@ class WrappedContainer extends Component {
 	};
 
 	componentDidMount() {
-		console.log("check AuthStoreProvider props");
-		console.log(this.props);
+		// console.log("check AuthStoreProvider props");
+		// console.log(this.props);
 		this.props.fetchAllAddresses();
 	}
 
 	chooseTripRoute = ({ from, to }) => {
-		console.log("chooseTripRoute", from, to);
+		// console.log("chooseTripRoute", from, to);
 		this.props.chooseRoute(from, to);
 	};
 

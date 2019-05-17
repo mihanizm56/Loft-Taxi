@@ -6,3 +6,4 @@ export * from "./UserButton";
 export * from "./RedirectToCredentialsBox";
 export * from "./AuthForm";
 export * from "./MapBox";
+export * from "./ProfileButton";

@@ -1,9 +1,9 @@
-export const sleep = data => {
+export const sleep = (ms, data) => {
 	return new Promise(res =>
 		setTimeout(() => {
 			console.log("sleep done");
 			res(data);
-		}, 2000)
+		}, ms)
 	);
 };
 

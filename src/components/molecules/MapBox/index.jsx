@@ -1,5 +1,5 @@
 import React, { Component, createRef } from "react";
-import { isEqual, uniqueId } from "lodash";
+import isEqual from "lodash/isEqual";
 import mapboxgl from "mapbox-gl/dist/mapbox-gl";
 import { EMPTY_ARRAY } from "../../../constants";
 import "./MapBox.css";

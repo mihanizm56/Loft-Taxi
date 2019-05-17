@@ -2,12 +2,12 @@ import { INPUT_DATA_OF_CARD, CLEAR_CARD_DATA, OPEN_CARD_FORM, CLOSE_CARD_FORM } 
 
 const initState = {
 	card: {
-		cardName: 1,
-		expDate: "11.12.2020",
-		cardNumber: 1,
-		cvv: 1,
+		cardName: null,
+		expDate: null,
+		cardNumber: null,
+		cvv: null,
 	},
-	formOpen: false,
+	shouldFormBeOpened: true,
 };
 
 const сredentialsReducer = (state = initState, action) => {
@@ -22,7 +22,7 @@ const сredentialsReducer = (state = initState, action) => {
 					cardNumber: action.payload.cardNumber,
 					cvv: action.payload.cvv,
 				},
-				formOpen: false,
+				shouldFormBeOpened: false,
 			};
 
 		case CLEAR_CARD_DATA:
@@ -35,13 +35,13 @@ const сredentialsReducer = (state = initState, action) => {
 					cardNumber: null,
 					cvv: null,
 				},
-				formOpen: false,
+				shouldFormBeOpened: true,
 			};
 
 		case OPEN_CARD_FORM:
 			return {
 				...state,
-				formOpen: true,
+				shouldFormBeOpened: true,
 			};
 
 		default:

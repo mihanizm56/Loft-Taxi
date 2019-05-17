@@ -5,7 +5,7 @@ import { renderTextField } from "../../atoms";
 import "./CredentialsForm.css";
 
 export const CredentialsForm = props => {
-	console.log("props CredentialsForm", props);
+	// console.log("props CredentialsForm", props);
 
 	const { saveUserCard, handleSubmit, cardName, expDate, cardNumber, cvv } = props;
 

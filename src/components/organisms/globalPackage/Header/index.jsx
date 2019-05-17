@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import { UserButton } from "../../../../components";
-import { AuthStoreProvider } from "../../../../containers";
+import { UserButton, ProfileButton } from "../../../../components";
+import { AuthStoreProvider, CredentialsStoreProvider } from "../../../../containers";
 import "./Header.css";
 
 export const Header = () => {
@@ -13,9 +13,9 @@ export const Header = () => {
 				<Button component={Link} to="/map">
 					Карта
 				</Button>
-				<Button component={Link} to="/profile">
-					Профиль
-				</Button>
+				<CredentialsStoreProvider>
+					<ProfileButton />
+				</CredentialsStoreProvider>
 				<AuthStoreProvider>
 					<UserButton />
 				</AuthStoreProvider>

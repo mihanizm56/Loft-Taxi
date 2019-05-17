@@ -5,7 +5,7 @@ export const renderSelect = ({ input, label, meta: { touched, error }, children,
 	<Select
 		fullWidth={true}
 		floatingLabelText={label}
-		errorText={touched && error}
+		// errorText={touched && error}
 		{...input}
 		children={children}
 		{...custom}

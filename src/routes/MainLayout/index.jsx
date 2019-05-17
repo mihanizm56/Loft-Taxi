@@ -5,8 +5,8 @@ import { PrivateRoute } from "../PageRoutes/PrivateRoutes";
 
 export const MainLayout = props => {
 	const { loggedIn, loginError } = props;
-	console.log("пропсы в MainLayout", props);
-	console.log("logined в MainLayout", loggedIn && !loginError);
+	// console.log("пропсы в MainLayout", props);
+	// console.log("logined в MainLayout", loggedIn && !loginError);
 
 	return (
 		<Switch>

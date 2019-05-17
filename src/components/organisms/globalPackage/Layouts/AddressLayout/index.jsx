@@ -7,7 +7,7 @@ import "./AddressLayout.css";
 export const AddressLayout = ({
 	offerDoneStatus,
 	createNewOffer,
-	credentialsValid,
+	requireCredentials,
 	arrayOfCoords,
 	reset,
 	...restProps
@@ -17,9 +17,9 @@ export const AddressLayout = ({
 		<>
 			<MapBox arrayOfCoords={arrayOfCoords} />
 			<div className="address-layout-wrapper">
-				{!credentialsValid && <RedirectToCredentialsBox />}
-				{credentialsValid && !offerDoneStatus && <AddressForm {...restProps} reset={reset} />}
-				{credentialsValid && offerDoneStatus && <OfferCreateBox createNewOffer={createNewOffer} reset={reset} />}
+				{requireCredentials && <RedirectToCredentialsBox />}
+				{!requireCredentials && !offerDoneStatus && <AddressForm {...restProps} reset={reset} />}
+				{!requireCredentials && offerDoneStatus && <OfferCreateBox createNewOffer={createNewOffer} reset={reset} />}
 			</div>
 		</>
 	);

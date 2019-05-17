@@ -6,11 +6,12 @@ const renderCredentialForm = props => <CredentialsForm {...props} />;
 
 const renderRedirectBox = props => <CredentialsRedirectBox />;
 
-export const CredentialLayout = ({ openedCredentialForm, ...restProps }) => {
+export const CredentialLayout = ({ requireCredentials, ...restProps }) => {
+	// console.log('CredentialLayout props',requireCredentials)
 	return (
 		<div className="credentials-layout-wrapper">
 			<h1 className="layout__title credentials-title">Профиль</h1>
-			{openedCredentialForm ? renderCredentialForm(restProps) : renderRedirectBox()}
+			{requireCredentials ? renderCredentialForm(restProps) : renderRedirectBox()}
 		</div>
 	);
 };

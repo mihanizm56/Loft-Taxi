@@ -15,5 +15,5 @@ export const openFormCardAction = () => ({
 });
 
 export const clearCardDataAction = () => ({
-	type: OPEN_CARD_FORM,
+	type: CLEAR_CARD_DATA,
 });

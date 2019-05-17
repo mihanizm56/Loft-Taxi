@@ -1,5 +1,14 @@
 import React, { Component } from "react";
 import { reduxForm } from "redux-form";
+import { sleep } from "../../../utils/requests";
+
+const asyncValidate = (values /*, dispatch */) => {
+	return sleep(100).then(() => {
+		if (!values.cardName) {
+			throw { cardName: "That username is taken" };
+		}
+	});
+};
 
 class WrappedContainer extends Component {
 	componentDidMount() {
@@ -45,17 +54,18 @@ export const CredentialsFormProvider = reduxForm({
 	// 	if (!cardName) {
 	// 		errors.cardName = "Wrong cardName";
 	// 	}
-	// 	if (!expDate) {
-	// 		errors.expDate = "Wrong expDate";
-	// 	}
-	// 	if (!cardNumber) {
-	// 		errors.cardNumber = "Wrong cardNumber";
-	// 	}
-	// 	if (!cvv) {
-	// 		errors.cvv = "Wrong cvv";
-	// 	}
+	// if (!expDate) {
+	// 	errors.expDate = "Wrong expDate";
+	// }
+	// if (!cardNumber) {
+	// 	errors.cardNumber = "Wrong cardNumber";
+	// }
+	// if (!cvv) {
+	// 	errors.cvv = "Wrong cvv";
+	// }
 
 	// 	return errors;
 	// },
+	asyncValidate,
 	form: "credentials",
 })(WrappedContainer);
