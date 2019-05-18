@@ -13,5 +13,3 @@ export const normalizeCardName = value =>
 		.replace(/^\s+/, "")
 		.replace(/^[а-яА-ЯёЁ0-9!@#$&*"'-=_+]+$/, "")
 		.toUpperCase();
-
-// export const normalizeCardNumbers = value => value.replace(/^\s+/, "").replace(/^[а-яА-ЯёЁa-zA-Z!@#$&*"']+$/, "");
