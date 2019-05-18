@@ -1,11 +1,15 @@
 import { saveAllCoordsAction, saveChoosenCoordsAction } from "./actions";
-
+import { EMPTY_ARRAY } from "../../../constants";
 import { fetchAddressesRequest, fetchRouteRequest } from "../../../services";
 
 export const fetchAllAddressesAction = (email, password) => {
 	return dispatch => {
 		fetchAddressesRequest(email, password).then(({ addresses }) => {
-			addresses && addresses.length && dispatch(saveAllCoordsAction(addresses));
+			if (addresses && addresses.length) {
+				dispatch(saveAllCoordsAction(addresses));
+			} else {
+				dispatch(saveAllCoordsAction(EMPTY_ARRAY));
+			}
 		});
 	};
 };

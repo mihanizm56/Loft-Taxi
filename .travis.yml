@@ -7,6 +7,9 @@ branches:
   only:
   - develop
 
+script:
+  - npm run test
+
 deploy:
   provider: heroku
   api_key:
