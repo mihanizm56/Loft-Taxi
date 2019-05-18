@@ -68,15 +68,12 @@ describe("AddressesStoreProvider", () => {
 
 			expect(dispatch.mock.calls[0][0]).toEqual({ type: "MAKE_NEW_OFFER" });
 		});
-		// it.only("fetchAllAddresses test", async () => {
-		// 	const {
-		// 		store,
-		// 		reduxThunkTester: { getActionHistoryAsync, getActionHistoryStringifyAsync },
-		// 	} = store;
+		it.only("fetchAllAddresses test", async () => {
+			const dispatch = jest.fn();
 
-		// 	const actionHistory = await getActionHistoryAsync();
+			mapDispatchToProps(dispatch).fetchAllAddresses();
 
-		// 	expect(actionHistory).toEqual([]);
-		// });
+			expect(dispatch.mock.calls[0][0]).toEqual({ type: "MAKE_NEW_OFFER" });
+		});
 	});
 });
