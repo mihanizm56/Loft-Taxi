@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 import { Field } from "redux-form";
 import { renderTextField } from "../../atoms";
-import { nullFunc, preventDefault, normalizeToEmpty, normalizeUpper } from "../../../utils";
+import { nullFunc, preventDefault, normalizeToEmpty, normalizeCardName } from "../../../utils";
 import "./CredentialsForm.css";
 
 export class CredentialsForm extends Component {
@@ -23,10 +23,9 @@ export class CredentialsForm extends Component {
 							<Field
 								name="cardName"
 								type="text"
-								normalize={normalizeUpper}
+								normalize={normalizeCardName}
 								component={renderTextField}
 								label="Имя владельца *"
-								value="dfgfdgdg"
 								onDrop={preventDefault}
 							/>
 						</div>
@@ -50,6 +49,9 @@ export class CredentialsForm extends Component {
 								name="cardNumber"
 								type="text"
 								normalize={normalizeToEmpty}
+								inputProps={{
+									maxLength: 16,
+								}}
 								// component={renderMaskedInput}
 								component={renderTextField}
 								label="Номер карты *"
@@ -60,6 +62,9 @@ export class CredentialsForm extends Component {
 							<Field
 								name="cvv"
 								type="text"
+								inputProps={{
+									maxLength: 3,
+								}}
 								normalize={normalizeToEmpty}
 								component={renderTextField}
 								label="CVV *"

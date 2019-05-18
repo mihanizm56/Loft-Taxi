@@ -1,6 +1,6 @@
 import { saveAllCoordsAction, saveChoosenCoordsAction } from "./actions";
 
-import { fetchAddressesRequest, fetchRouteRequest } from "../../../utils";
+import { fetchAddressesRequest, fetchRouteRequest } from "../../../services";
 
 export const fetchAllAddressesAction = (email, password) => {
 	return dispatch => {

@@ -10,12 +10,5 @@ class WrappedContainer extends Component {
 }
 
 export const AddressesFormProvider = reduxForm({
-	// validate: ({ email, password, name }) => {
-	// 	const errors = {};
-	// 	if (!email) errors.email = "Failed email";
-	// 	if (!password) errors.password = "Failed password";
-	// 	if (!name) errors.password = "Failed name";
-	// 	return errors;
-	// },
 	form: "addresses",
 })(WrappedContainer);

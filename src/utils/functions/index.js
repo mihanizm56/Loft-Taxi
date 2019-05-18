@@ -8,4 +8,10 @@ export const preventDefault = event => event.preventDefault();
 
 export const normalizeToEmpty = value => value.replace(/^\s+/, "");
 
-export const normalizeUpper = value => value.replace(/^\s+/, "").toUpperCase();
+export const normalizeCardName = value =>
+	value
+		.replace(/^\s+/, "")
+		.replace(/^[а-яА-ЯёЁ0-9!@#$&*"'-=_+]+$/, "")
+		.toUpperCase();
+
+// export const normalizeCardNumbers = value => value.replace(/^\s+/, "").replace(/^[а-яА-ЯёЁa-zA-Z!@#$&*"']+$/, "");
