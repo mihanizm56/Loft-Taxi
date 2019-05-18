@@ -1,5 +1,22 @@
 import React, { Component } from "react";
 import { reduxForm } from "redux-form";
+import { fetchLoginAndPassword } from "../../../utils";
+
+const asyncValidate = values => {
+	return fetchLoginAndPassword().then(data => {
+		const resultError = {};
+
+		if (values.email !== data.email) {
+			resultError.email = "Неве	рный логин";
+		}
+
+		if (values.password !== data.password) {
+			resultError.password = "Неправильный пароль";
+		}
+
+		if (resultError.email || resultError.password) throw resultError;
+	});
+};
 
 class WrappedContainer extends Component {
 	normalizeEmail = value => value.replace(/^\s+/, "");
@@ -20,11 +37,6 @@ class WrappedContainer extends Component {
 }
 
 export const AuthFormProvider = reduxForm({
-	validate: ({ email, password }) => {
-		const errors = {};
-		if (!email) errors.email = "Failed email";
-		// if (!password) errors.password = "Failed password";
-		return errors;
-	},
 	form: "auth",
+	asyncValidate,
 })(WrappedContainer);

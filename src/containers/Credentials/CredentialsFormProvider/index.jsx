@@ -2,41 +2,62 @@ import React, { Component } from "react";
 import { reduxForm } from "redux-form";
 import { sleep } from "../../../utils/requests";
 
-const asyncValidate = (values /*, dispatch */) => {
-	return sleep(100).then(() => {
+const asyncValidate = values => {
+	return sleep(100).then(data => {
+		const resultError = {};
+
 		if (!values.cardName) {
-			throw { cardName: "That username is taken" };
+			resultError.cardName = "Это обязательное поле";
+		}
+
+		if (!values.expDate) {
+			resultError.expDate = "Это обязательное поле";
+		}
+
+		if (!values.cardNumber) {
+			resultError.cardNumber = "Это обязательное поле";
+		}
+
+		if (!values.cvv) {
+			resultError.cvv = "Это обязательное поле";
+		}
+
+		if (resultError.cardName || resultError.expDate || resultError.cardNumber || resultError.cvv) {
+			throw resultError;
 		}
 	});
 };
 
+const validate = values => {
+	const errors = {};
+
+	if (!values.cardName) {
+		errors.cardName = "Это обязательное поле";
+	}
+
+	if (!values.expDate) {
+		errors.expDate = "Это обязательное поле";
+	}
+
+	if (!values.cardNumber) {
+		errors.cardNumber = "Это обязательное поле";
+	}
+
+	if (!values.cvv) {
+		errors.cvv = "Это обязательное поле";
+	}
+
+	if (errors.cardName || errors.expDate || errors.cardNumber || errors.cvv) {
+		return errors;
+	}
+};
+
 class WrappedContainer extends Component {
-	normalizeCardUser = value => {
-		value = value.replace(/^\s+/, "");
-
-		return typeof value === "string" ? value : "";
-	};
-
-	normalizeCardNumber = value => {
-		value = value.replace(/^\s+/, "");
-
-		return typeof value === "number" ? value : "";
-	};
-
-	normalizeCardCVV = value => {
-		value = value.replace(/^\s+/, "");
-
-		return typeof value === "number" ? value : "";
-	};
-
 	render() {
 		const { children } = this.props;
 
 		return React.Children.map(children, child =>
 			React.cloneElement(child, {
-				normalizeCardUser: this.normalizeCardUser,
-				normalizeCardNumber: this.normalizeCardNumber,
-				normalizeCardCVV: this.normalizeCardCVV,
 				...this.props,
 			})
 		);
@@ -44,23 +65,7 @@ class WrappedContainer extends Component {
 }
 
 export const CredentialsFormProvider = reduxForm({
-	// validate: ({ cardName, expDate, cardNumber, cvv }) => {
-	// 	const errors = {};
-	// 	if (!cardName) {
-	// 		errors.cardName = "Wrong cardName";
-	// 	}
-	// if (!expDate) {
-	// 	errors.expDate = "Wrong expDate";
-	// }
-	// if (!cardNumber) {
-	// 	errors.cardNumber = "Wrong cardNumber";
-	// }
-	// if (!cvv) {
-	// 	errors.cvv = "Wrong cvv";
-	// }
-
-	// 	return errors;
-	// },
+	validate,
 	asyncValidate,
 	form: "credentials",
 })(WrappedContainer);

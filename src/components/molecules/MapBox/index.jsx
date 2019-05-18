@@ -38,8 +38,10 @@ export class MapBox extends Component {
 
 	componentDidUpdate(prevState) {
 		if (!isEqual(prevState, this.state)) {
-			this.addTheLine(this.state.coords);
-			this.flyToPoint(this.state.coords[0]);
+			const { coords } = this.state;
+
+			this.addTheLine(coords);
+			this.flyToPoint(coords[0]);
 		}
 
 		if (!this.state.coords.length) {
@@ -87,10 +89,14 @@ export class MapBox extends Component {
 	};
 
 	removeLayer = () => {
-		this.map.removeLayer("route");
-		this.map.removeSource("route");
+		const { map } = this;
 
-		if (this.map.getSource("route")) this.map.removeSource("route");
+		map.removeLayer("route");
+		map.removeSource("route");
+
+		if (map.getSource("route")) {
+			map.removeSource("route");
+		}
 	};
 
 	flyToPoint = coords => {

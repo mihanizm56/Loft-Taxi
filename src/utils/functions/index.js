@@ -3,3 +3,9 @@ export const combineFunctionsOnClick = (...args) => {
 };
 
 export const nullFunc = () => {};
+
+export const preventDefault = event => event.preventDefault();
+
+export const normalizeToEmpty = value => value.replace(/^\s+/, "");
+
+export const normalizeUpper = value => value.replace(/^\s+/, "").toUpperCase();

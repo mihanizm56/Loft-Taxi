@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 import { Field, change, reset } from "redux-form";
-import { renderTextField } from "../../atoms";
-import { nullFunc } from "../../../utils";
+import { renderTextField, renderMaskedInput } from "../../atoms";
+import { nullFunc, preventDefault, normalizeToEmpty, normalizeUpper } from "../../../utils";
 import "./CredentialsForm.css";
 
 export class CredentialsForm extends Component {
@@ -12,7 +12,7 @@ export class CredentialsForm extends Component {
 	}
 
 	render() {
-		const { saveUserCard, handleSubmit, cardName, expDate, cardNumber, cvv } = this.props;
+		const { saveUserCard, handleSubmit } = this.props;
 
 		return (
 			<form onSubmit={handleSubmit(saveUserCard)}>
@@ -23,23 +23,24 @@ export class CredentialsForm extends Component {
 							<Field
 								name="cardName"
 								type="text"
-								// normalize={normalizePassword}
+								normalize={normalizeUpper}
 								component={renderTextField}
 								label="Имя владельца *"
 								value="dfgfdgdg"
+								onDrop={preventDefault}
 							/>
 						</div>
 						<div className="credentials-form__item">
 							<Field
 								name="expDate"
 								type="date"
-								// normalize={normalizePassword}
+								normalize={normalizeToEmpty}
 								component={renderTextField}
 								label="Дата окончания действия *"
 								InputLabelProps={{
 									shrink: true,
 								}}
-								value={expDate}
+								onDrop={preventDefault}
 							/>
 						</div>
 					</div>
@@ -48,20 +49,21 @@ export class CredentialsForm extends Component {
 							<Field
 								name="cardNumber"
 								type="text"
-								// normalize={normalizePassword}
+								normalize={normalizeToEmpty}
+								// component={renderMaskedInput}
 								component={renderTextField}
 								label="Номер карты *"
-								value={cardNumber}
+								onDrop={preventDefault}
 							/>
 						</div>
 						<div className="credentials-form__item">
 							<Field
 								name="cvv"
 								type="text"
-								// normalize={normalizePassword}
+								normalize={normalizeToEmpty}
 								component={renderTextField}
 								label="CVV *"
-								value={cvv}
+								onDrop={preventDefault}
 							/>
 						</div>
 					</div>

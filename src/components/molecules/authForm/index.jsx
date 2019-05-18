@@ -14,7 +14,13 @@ export const AuthForm = props => {
 			<form onSubmit={handleSubmit(signInUser)} className="auth-form">
 				<h1 className="auth-form__title">Войти</h1>
 				<div className="form__field">
-					<Field name="email" component={renderTextField} normalize={normalizeEmail} label="Имя пользователя *" />
+					<Field
+						name="email"
+						type="text"
+						component={renderTextField}
+						normalize={normalizeEmail}
+						label="Имя пользователя *"
+					/>
 				</div>
 				<div className="form__field">
 					<Field

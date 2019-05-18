@@ -1,3 +1,8 @@
+const appLoginValues = {
+	email: "test@test.com",
+	password: "123123",
+}; ///TODO MAKE OWN REST API
+
 export const sleep = (ms, data) => {
 	return new Promise(res =>
 		setTimeout(() => {
@@ -20,4 +25,13 @@ export const fetchRouteRequest = (routeFrom, routeTo) => {
 			routeTo
 		)}`
 	).then(data => data.json());
+};
+
+export const fetchLoginAndPassword = (ms, data) => {
+	return new Promise(res =>
+		setTimeout(() => {
+			console.log("server answered with login");
+			res(appLoginValues);
+		}, 100)
+	);
 };
