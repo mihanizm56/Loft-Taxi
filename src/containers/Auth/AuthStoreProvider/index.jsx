@@ -6,25 +6,17 @@ import { clearAdressRoute } from "../../../redux/modules/Adresses";
 import { nullFunc } from "../../../utils";
 
 class WrappedContainer extends Component {
-	static defaultProps = {
-		signInFunc: nullFunc,
-	};
-
 	signInUser = ({ email, password }) => {
 		if (email && password) {
 			this.props.signIn(email, password);
 		}
 	};
 
-	signOutUser = () => {
-		this.props.signOut();
-	};
-
 	render() {
 		const { children, signIn, signOut, loggedIn, ...restProps } = this.props;
 
 		return React.Children.map(children, child =>
-			React.cloneElement(child, { signInUser: this.signInUser, loggedIn, signOutUser: this.signOutUser, ...restProps })
+			React.cloneElement(child, { signInUser: this.signInUser, loggedIn, signOutUser: signOut, ...restProps })
 		);
 	}
 }

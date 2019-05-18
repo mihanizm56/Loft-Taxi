@@ -8,13 +8,8 @@ import {
 	fetchCoordsAction,
 	getChoosenCoords,
 } from "../../../redux/modules/Adresses";
-import { nullFunc } from "../../../utils";
 
 class WrappedContainer extends Component {
-	static defaultProps = {
-		fetchAllAddresses: nullFunc,
-	};
-
 	componentDidMount() {
 		this.props.fetchAllAddresses();
 	}

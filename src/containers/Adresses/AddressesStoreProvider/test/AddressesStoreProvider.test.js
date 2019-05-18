@@ -1,22 +1,12 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
-import { AddressesStoreProvider, mapDispatchToProps } from "../";
-import { Provider } from "react-redux";
-import {
-	removeCoordsAction,
-	clearAdressRoute,
-	saveAllCoordsAction,
-	saveChoosenCoordsAction,
-	fetchAllAddressesAction,
-	fetchCoordsAction,
-} from "../../../../redux/modules/Adresses";
 import configureMockStore from "redux-mock-store";
+import { Provider } from "react-redux";
 import thunk from "redux-thunk";
-
-const mockStore = configureMockStore([thunk]);
-const initialState = { routeMapReducer: { allRoutes: [], offerDone: false, choosenRouteCoords: [] } };
-let store;
-let wrapper;
+import { AddressesStoreProvider, mapDispatchToProps } from "../";
+import * as middleware from "../../../../redux/modules/Adresses/middleware";
+import * as actions from "../../../../redux/modules/Adresses/actions";
+import { nullFunc } from "../../../../utils";
 
 jest.mock("mapbox-gl/dist/mapbox-gl", () => ({
 	Map: () => ({}),
@@ -24,6 +14,11 @@ jest.mock("mapbox-gl/dist/mapbox-gl", () => ({
 
 describe("AddressesStoreProvider", () => {
 	const MockComponent = props => <div>test</div>;
+
+	const mockStore = configureMockStore([thunk]);
+	const initialState = { routeMapReducer: { allRoutes: [], offerDone: false, choosenRouteCoords: [] } };
+	let store;
+	let wrapper;
 
 	beforeEach(() => {
 		store = mockStore(initialState);
@@ -61,19 +56,32 @@ describe("AddressesStoreProvider", () => {
 	});
 
 	describe("functionality of mapDispatchToProps", () => {
-		it("createNewOffer pure test", () => {
-			const dispatch = jest.fn();
+		it("fetchAllAddresses test when component did mount", () => {
+			const fetchAllAddressesMock = jest.spyOn(middleware, "fetchAllAddressesAction");
+			wrapper
+				.find("WrappedContainer")
+				.instance()
+				.componentDidMount();
 
-			mapDispatchToProps(dispatch).createNewOffer();
-
-			expect(dispatch.mock.calls[0][0]).toEqual({ type: "MAKE_NEW_OFFER" });
+			expect(fetchAllAddressesMock).toHaveBeenCalled();
 		});
-		// it.only("fetchAllAddresses test", async () => {
-		// 	const dispatch = jest.fn();
+		it("chooseTripRoute test in component", () => {
+			const fetchCoordsActionMock = jest.spyOn(middleware, "fetchCoordsAction");
+			wrapper
+				.find("WrappedContainer")
+				.instance()
+				.chooseTripRoute("place A", "place B");
 
-		// 	mapDispatchToProps(dispatch).fetchAllAddresses();
+			expect(fetchCoordsActionMock).toHaveBeenCalled();
+		});
+		it("clearAddress test in component", () => {
+			const clearAddressMock = jest.spyOn(actions, "clearAdressRoute");
+			wrapper
+				.find("WrappedContainer")
+				.instance()
+				.createNewOffer();
 
-		// 	expect(dispatch.mock.calls[0][0]).toEqual({ type: "MAKE_NEW_OFFER" });
-		// });
+			expect(clearAddressMock).toHaveBeenCalled();
+		});
 	});
 });
