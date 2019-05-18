@@ -30,7 +30,6 @@ export const fetchRouteRequest = (routeFrom, routeTo) => {
 export const fetchLoginAndPassword = (ms, data) => {
 	return new Promise(res =>
 		setTimeout(() => {
-			console.log("server answered with login");
 			res(appLoginValues);
 		}, 100)
 	);
