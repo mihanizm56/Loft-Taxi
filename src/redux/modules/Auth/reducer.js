@@ -1,8 +1,7 @@
-import { LOGIN_STATE_PENDING, LOGIN_STATE_SUCCESS, LOGIN_STATE_FAILED, LOGOUT } from "./constants";
+import { LOGIN_STATE_SUCCESS, LOGIN_STATE_FAILED, LOGOUT } from "./constants";
 
 const initState = {
 	login: false,
-	error: null,
 };
 
 const loginReducer = (state = initState, action) => {
@@ -10,9 +9,9 @@ const loginReducer = (state = initState, action) => {
 		case LOGIN_STATE_SUCCESS:
 			return { ...state, login: true };
 		case LOGIN_STATE_FAILED:
-			return { ...state, login: false, error: true };
+			return { ...state, login: false };
 		case LOGOUT:
-			return { ...state, login: false, error: false };
+			return { ...state, login: false };
 
 		default:
 			return state;

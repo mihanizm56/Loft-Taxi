@@ -1,4 +1,4 @@
-import { REMOVE_COORDS, CHOOSE_COORDS, SAVE_ALL_ROUTES, MAKE_NEW_OFFER, SAVE_CHOOSEN_COORDS_ROUTES } from "./constants";
+import { SAVE_ALL_ROUTES, MAKE_NEW_OFFER, SAVE_CHOOSEN_COORDS_ROUTES } from "./constants";
 
 const initialState = {
 	allRoutes: [],

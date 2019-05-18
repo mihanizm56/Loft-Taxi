@@ -1,5 +1,5 @@
 import { loginSuccessAction, loginFailedAction } from "./actions";
-import { sleep, fetchLoginRequest } from "../../../utils";
+import { fetchLoginRequest } from "../../../utils";
 
 export const loginRequestAction = (email, password) => {
 	if (email && password) {

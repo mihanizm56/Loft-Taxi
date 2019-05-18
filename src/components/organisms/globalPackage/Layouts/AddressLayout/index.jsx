@@ -1,6 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import Button from "@material-ui/core/Button";
 import { OfferCreateBox, AddressForm, RedirectToCredentialsBox, MapBox } from "../../../../molecules";
 import { nullFunc } from "../../../../../utils";
 import "./AddressLayout.css";

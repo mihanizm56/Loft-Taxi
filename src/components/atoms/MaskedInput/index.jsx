@@ -1,6 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
 import TextField from "@material-ui/core/TextField";
-import { renderTextField } from "../";
 import InputMask from "react-input-mask";
 
 export const renderMaskedInput = props => (

@@ -1,4 +1,4 @@
-import { LOGIN_STATE_PENDING, LOGIN_STATE_SUCCESS, LOGIN_STATE_FAILED, LOGOUT } from "./constants";
+import { LOGIN_STATE_SUCCESS, LOGIN_STATE_FAILED, LOGOUT } from "./constants";
 
 export const loginSuccessAction = () => ({ type: LOGIN_STATE_SUCCESS });
 

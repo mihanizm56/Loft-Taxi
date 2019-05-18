@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { getFormValues } from "redux-form";
 import { reduxForm } from "redux-form";
 
 class WrappedContainer extends Component {

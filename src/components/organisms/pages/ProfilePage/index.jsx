@@ -1,9 +1,5 @@
 import React from "react";
-import {
-	CredentialsStoreProvider,
-	CredentialsFormProvider,
-	CredentialsFormValuesProvider,
-} from "../../../../containers";
+import { CredentialsStoreProvider, CredentialsFormProvider } from "../../../../containers";
 import { CredentialLayout } from "../../../../components";
 
 export const ProfilePage = props => {
@@ -11,9 +7,7 @@ export const ProfilePage = props => {
 		<div className="layout-page layout-page--up-fixed">
 			<CredentialsStoreProvider>
 				<CredentialsFormProvider>
-					<CredentialsFormValuesProvider>
-						<CredentialLayout {...props} />
-					</CredentialsFormValuesProvider>
+					<CredentialLayout {...props} />
 				</CredentialsFormProvider>
 			</CredentialsStoreProvider>
 		</div>

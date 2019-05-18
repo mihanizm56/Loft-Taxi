@@ -1,6 +1,5 @@
 import React from "react";
 import { Field } from "redux-form";
-import { InputComponent } from "../../atoms";
 import Button from "@material-ui/core/Button";
 import { renderTextField } from "../../atoms";
 import { nullFunc } from "../../../utils";

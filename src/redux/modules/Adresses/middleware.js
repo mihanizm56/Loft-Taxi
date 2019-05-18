@@ -1,8 +1,6 @@
 import { saveAllCoordsAction, saveChoosenCoordsAction } from "./actions";
 
-import { sleep, fetchLoginRequest, fetchAddressesRequest, fetchRouteRequest } from "../../../utils";
-
-const EMPTY_ARRAY = [];
+import { fetchAddressesRequest, fetchRouteRequest } from "../../../utils";
 
 export const fetchAllAddressesAction = (email, password) => {
 	return dispatch => {

@@ -2,14 +2,11 @@ import React from "react";
 import { Switch, Redirect } from "react-router-dom";
 import { IndexPageRoute } from "./IndexPageRoute";
 import { ProfilePageRoute } from "./ProfilePageRoute";
-import { LoginPageRoute } from "../";
 
 export const PrivateRoute = props => {
-	const { loggedIn, loginError } = props;
+	const { loggedIn } = props;
 
-	const logined = loggedIn && !loginError;
-
-	return !logined ? (
+	return !loggedIn ? (
 		<Redirect to="/login" />
 	) : (
 		<Switch>

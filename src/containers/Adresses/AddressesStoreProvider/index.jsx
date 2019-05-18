@@ -4,7 +4,7 @@ import {
 	getAllRoutesState,
 	getOfferDoneState,
 	fetchAllAddressesAction,
-	makeNewOfferAction,
+	clearAdressRoute,
 	fetchCoordsAction,
 	getChoosenCoords,
 } from "../../../redux/modules/Adresses";
@@ -57,7 +57,7 @@ const mapDispatchToProps = dispatch => {
 			dispatch(fetchCoordsAction(from, to));
 		},
 		createNewOffer() {
-			dispatch(makeNewOfferAction());
+			dispatch(clearAdressRoute());
 		},
 	};
 };

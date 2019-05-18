@@ -11,8 +11,6 @@ export class MapBox extends Component {
 		return nextProps.arrayOfCoords && nextProps.arrayOfCoords.length
 			? { ...prevState, coords: nextProps.arrayOfCoords }
 			: { ...prevState, coords: EMPTY_ARRAY };
-
-		return { ...prevState };
 	}
 
 	constructor() {

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { loginRequestAction, logoutAction, getLoginState, getLoginError } from "../../../redux/modules/Auth";
+import { loginRequestAction, logoutAction, getLoginState } from "../../../redux/modules/Auth";
 import { clearCardDataAction } from "../../../redux/modules/Credentials";
-import { makeNewOfferAction } from "../../../redux/modules/Adresses";
+import { clearAdressRoute } from "../../../redux/modules/Adresses";
 import { nullFunc } from "../../../utils";
 
 class WrappedContainer extends Component {
@@ -21,8 +21,7 @@ class WrappedContainer extends Component {
 	};
 
 	render() {
-		const { children, signIn, signOut, loggedIn: loggedInStore, loginError, ...restProps } = this.props;
-		const loggedIn = loggedInStore && !loginError;
+		const { children, signIn, signOut, loggedIn, ...restProps } = this.props;
 
 		return React.Children.map(children, child =>
 			React.cloneElement(child, { signInUser: this.signInUser, loggedIn, signOutUser: this.signOutUser, ...restProps })
@@ -33,7 +32,6 @@ class WrappedContainer extends Component {
 const mapStateToProps = store => {
 	return {
 		loggedIn: getLoginState(store),
-		loginError: getLoginError(store),
 	};
 };
 
@@ -44,8 +42,8 @@ const mapDispatchToProps = dispatch => {
 		},
 		signOut() {
 			dispatch(logoutAction());
-			dispatch(clearCardDataAction()); /// из соображений безопасности данный банковской карты
-			dispatch(makeNewOfferAction());
+			dispatch(clearCardDataAction()); /// из соображений безопасности данных банковской карты
+			dispatch(clearAdressRoute());
 		},
 	};
 };

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
-import { Field, change, reset } from "redux-form";
-import { renderTextField, renderMaskedInput } from "../../atoms";
+import { Field } from "redux-form";
+import { renderTextField } from "../../atoms";
 import { nullFunc, preventDefault, normalizeToEmpty, normalizeUpper } from "../../../utils";
 import "./CredentialsForm.css";
 

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Field } from "redux-form";
 import Button from "@material-ui/core/Button";
-import { renderTextField, renderSelect } from "../../atoms";
+import { renderSelect } from "../../atoms";
 import { nullFunc } from "../../../utils";
 import "./AddressForm.css";
 
