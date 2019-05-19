@@ -1,4 +1,4 @@
-import { fetchLoginAndPassword } from "../../../services";
+import { fetchLoginAndPassword } from "../..";
 
 export const syncValidateForAuth = values => {
 	return fetchLoginAndPassword().then(data => {

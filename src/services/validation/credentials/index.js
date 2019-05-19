@@ -1,4 +1,4 @@
-import { sleep } from "../../../services";
+import { sleep } from "../..";
 
 export const asyncValidateForCredentials = values => {
 	return sleep(100).then(data => {

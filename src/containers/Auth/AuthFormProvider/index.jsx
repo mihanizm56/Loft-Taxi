@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { reduxForm } from "redux-form";
-import { asyncValidateForAuth, syncValidateForAuth } from "../../../utils";
+import { asyncValidateForAuth, syncValidateForAuth } from "../../../services/validation";
 
 class WrappedContainer extends Component {
 	normalizeEmail = value => value.replace(/^\s+/, "");

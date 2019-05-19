@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { reduxForm } from "redux-form";
-import { asyncValidateForCredentials, syncValidateForCredentials } from "../../../utils";
+import { asyncValidateForCredentials, syncValidateForCredentials } from "../../../services/validation";
 
 class WrappedContainer extends Component {
 	render() {
