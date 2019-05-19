@@ -18,8 +18,8 @@ const store = createAppStore(persistedState);
 store.subscribe(
 	throttle(() => {
 		saveState({
-			loginReducer: store.getState().loginReducer,
-			сredentialsReducer: store.getState().сredentialsReduce,
+			loginStorage: store.getState().loginStorage,
+			сredentialsStorage: store.getState().сredentialsReduce,
 		});
 	}),
 	1000

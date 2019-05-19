@@ -16,7 +16,7 @@ describe("CredentialsStoreProvider", () => {
 	const MockComponent = props => <div>test</div>;
 	const mockStore = configureMockStore();
 	const initialState = {
-		сredentialsReducer: {
+		сredentialsStorage: {
 			card: {
 				cardName: null,
 				expDate: null,
@@ -46,20 +46,20 @@ describe("CredentialsStoreProvider", () => {
 			expect(wrapper.find(MockComponent).length).toBe(1);
 		});
 		it("should set cardName", () => {
-			expect(wrapper.find(MockComponent).prop("cardName")).toEqual(initialState.сredentialsReducer.card.cardName);
+			expect(wrapper.find(MockComponent).prop("cardName")).toEqual(initialState.сredentialsStorage.card.cardName);
 		});
 		it("should set cardNumber", () => {
-			expect(wrapper.find(MockComponent).prop("cardNumber")).toEqual(initialState.сredentialsReducer.card.cardNumber);
+			expect(wrapper.find(MockComponent).prop("cardNumber")).toEqual(initialState.сredentialsStorage.card.cardNumber);
 		});
 		it("should set cvv", () => {
-			expect(wrapper.find(MockComponent).prop("cvv")).toEqual(initialState.сredentialsReducer.card.cvv);
+			expect(wrapper.find(MockComponent).prop("cvv")).toEqual(initialState.сredentialsStorage.card.cvv);
 		});
 		it("should set expDate", () => {
-			expect(wrapper.find(MockComponent).prop("expDate")).toEqual(initialState.сredentialsReducer.card.expDate);
+			expect(wrapper.find(MockComponent).prop("expDate")).toEqual(initialState.сredentialsStorage.card.expDate);
 		});
 		it("should set shouldFormBeOpened", () => {
 			expect(wrapper.find(MockComponent).prop("shouldFormBeOpened")).toEqual(
-				initialState.сredentialsReducer.shouldFormBeOpened
+				initialState.сredentialsStorage.shouldFormBeOpened
 			);
 		});
 		it("should set saveUserCard", () => {

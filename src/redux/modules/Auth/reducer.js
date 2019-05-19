@@ -4,7 +4,7 @@ const initState = {
 	login: false,
 };
 
-const loginReducer = (state = initState, action) => {
+const loginStorage = (state = initState, action) => {
 	switch (action.type) {
 		case LOGIN_STATE_SUCCESS:
 			return { ...state, login: true };
@@ -18,4 +18,4 @@ const loginReducer = (state = initState, action) => {
 	}
 };
 
-export default loginReducer;
+export default loginStorage;

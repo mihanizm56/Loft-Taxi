@@ -18,7 +18,7 @@ describe("AuthStoreProvider", () => {
 	const MockComponent = props => <div>test</div>;
 
 	const mockStore = configureMockStore([thunk]);
-	const initialState = { loginReducer: { login: false } };
+	const initialState = { loginStorage: { login: false } };
 	let store;
 	let wrapper;
 
@@ -39,7 +39,7 @@ describe("AuthStoreProvider", () => {
 			expect(wrapper.find(MockComponent).length).toBe(1);
 		});
 		it("should set loggedIn", () => {
-			expect(wrapper.find(MockComponent).prop("loggedIn")).toEqual(initialState.loginReducer.login);
+			expect(wrapper.find(MockComponent).prop("loggedIn")).toEqual(initialState.loginStorage.login);
 		});
 		it("should set signInUser", () => {
 			expect(wrapper.find(MockComponent).prop("signInUser")).toBeInstanceOf(Function);

@@ -3,7 +3,7 @@ import { EMPTY_ARRAY } from "../../../../constants";
 
 describe("Address Selectors", () => {
 	const mockParameters = {
-		routeMapReducer: {
+		routeMapStorage: {
 			allRoutes: EMPTY_ARRAY,
 			offerDone: false,
 			choosenRouteCoords: EMPTY_ARRAY,
@@ -11,15 +11,15 @@ describe("Address Selectors", () => {
 	};
 
 	it("should return choosen coords", () => {
-		const selected = getChoosenCoords.resultFunc(mockParameters.routeMapReducer.choosenRouteCoords);
-		expect(selected).toEqual(mockParameters.routeMapReducer.choosenRouteCoords);
+		const selected = getChoosenCoords.resultFunc(mockParameters.routeMapStorage.choosenRouteCoords);
+		expect(selected).toEqual(mockParameters.routeMapStorage.choosenRouteCoords);
 	});
 	it("should return all coords", () => {
-		const selected = getAllRoutesState.resultFunc(mockParameters.routeMapReducer.allRoutes);
-		expect(selected).toEqual(mockParameters.routeMapReducer.allRoutes);
+		const selected = getAllRoutesState.resultFunc(mockParameters.routeMapStorage.allRoutes);
+		expect(selected).toEqual(mockParameters.routeMapStorage.allRoutes);
 	});
 	it("should return state of offer", () => {
-		const selected = getOfferDoneState.resultFunc(mockParameters.routeMapReducer.offerDone);
-		expect(selected).toEqual(mockParameters.routeMapReducer.offerDone);
+		const selected = getOfferDoneState.resultFunc(mockParameters.routeMapStorage.offerDone);
+		expect(selected).toEqual(mockParameters.routeMapStorage.offerDone);
 	});
 });

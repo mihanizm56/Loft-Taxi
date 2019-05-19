@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { loginRequestAction, logoutAction, getLoginState } from "../../../redux/modules/Auth";
 import { clearCardDataAction } from "../../../redux/modules/Credentials";
 import { clearAdressRoute } from "../../../redux/modules/Adresses";
-import { nullFunc } from "../../../utils";
 
 class WrappedContainer extends Component {
 	signInUser = ({ email, password }) => {

@@ -1,10 +1,10 @@
 import { createSelector } from "reselect";
 
-const cardNameState = state => state.сredentialsReducer.card.cardName;
-const expDateState = state => state.сredentialsReducer.card.expDate;
-const cardNumberState = state => state.сredentialsReducer.card.cardNumber;
-const cvvState = state => state.сredentialsReducer.card.cvv;
-const shouldFormBeOpened = state => state.сredentialsReducer.shouldFormBeOpened;
+const cardNameState = state => state.сredentialsStorage.card.cardName;
+const expDateState = state => state.сredentialsStorage.card.expDate;
+const cardNumberState = state => state.сredentialsStorage.card.cardNumber;
+const cvvState = state => state.сredentialsStorage.card.cvv;
+const shouldFormBeOpened = state => state.сredentialsStorage.shouldFormBeOpened;
 
 export const getCardNameState = createSelector(
 	[cardNameState],

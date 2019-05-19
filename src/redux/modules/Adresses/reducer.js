@@ -6,7 +6,7 @@ const initialState = {
 	choosenRouteCoords: [],
 };
 
-const routeMapReducer = (state = initialState, action) => {
+const routeMapStorage = (state = initialState, action) => {
 	switch (action.type) {
 		case SAVE_ALL_ROUTES:
 			return {
@@ -33,4 +33,4 @@ const routeMapReducer = (state = initialState, action) => {
 	}
 };
 
-export default routeMapReducer;
+export default routeMapStorage;

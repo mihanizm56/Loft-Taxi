@@ -16,7 +16,7 @@ describe("AddressesStoreProvider", () => {
 	const MockComponent = props => <div>test</div>;
 
 	const mockStore = configureMockStore([thunk]);
-	const initialState = { routeMapReducer: { allRoutes: [], offerDone: false, choosenRouteCoords: [] } };
+	const initialState = { routeMapStorage: { allRoutes: [], offerDone: false, choosenRouteCoords: [] } };
 	let store;
 	let wrapper;
 
@@ -37,14 +37,14 @@ describe("AddressesStoreProvider", () => {
 			expect(wrapper.find(MockComponent).length).toBe(1);
 		});
 		it("should set allRoutes", () => {
-			expect(wrapper.find(MockComponent).prop("allRoutes")).toEqual(initialState.routeMapReducer.allRoutes);
+			expect(wrapper.find(MockComponent).prop("allRoutes")).toEqual(initialState.routeMapStorage.allRoutes);
 		});
 		it("should set offerDone", () => {
-			expect(wrapper.find(MockComponent).prop("offerDoneStatus")).toEqual(initialState.routeMapReducer.offerDone);
+			expect(wrapper.find(MockComponent).prop("offerDoneStatus")).toEqual(initialState.routeMapStorage.offerDone);
 		});
 		it("should set choosenRouteCoords", () => {
 			expect(wrapper.find(MockComponent).prop("arrayOfCoords")).toEqual(
-				initialState.routeMapReducer.choosenRouteCoords
+				initialState.routeMapStorage.choosenRouteCoords
 			);
 		});
 		it("should set chooseTripRoute", () => {

@@ -10,7 +10,7 @@ const initState = {
 	shouldFormBeOpened: true,
 };
 
-const сredentialsReducer = (state = initState, action) => {
+const сredentialsStorage = (state = initState, action) => {
 	switch (action.type) {
 		case INPUT_DATA_OF_CARD:
 			return {
@@ -53,4 +53,4 @@ const сredentialsReducer = (state = initState, action) => {
 	}
 };
 
-export default сredentialsReducer;
+export default сredentialsStorage;

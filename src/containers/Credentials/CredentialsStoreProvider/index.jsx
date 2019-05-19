@@ -11,7 +11,6 @@ import {
 	getShouldFormBeOpened,
 	getValidFormData,
 } from "../../../redux/modules/Credentials";
-import { nullFunc } from "../../../utils";
 
 class WrappedContainer extends Component {
 	saveUserCard = ({ cardName, expDate, cardNumber, cvv }) => {
