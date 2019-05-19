@@ -10,15 +10,15 @@ describe("Address Selectors", () => {
 		},
 	};
 
-	it("should return choosen coords", () => {
+	it("returns choosen coords", () => {
 		const selected = getChoosenCoords.resultFunc(mockParameters.routeMapStorage.choosenRouteCoords);
 		expect(selected).toEqual(mockParameters.routeMapStorage.choosenRouteCoords);
 	});
-	it("should return all coords", () => {
+	it("returns all coords", () => {
 		const selected = getAllRoutesState.resultFunc(mockParameters.routeMapStorage.allRoutes);
 		expect(selected).toEqual(mockParameters.routeMapStorage.allRoutes);
 	});
-	it("should return state of offer", () => {
+	it("returns state of offer", () => {
 		const selected = getOfferDoneState.resultFunc(mockParameters.routeMapStorage.offerDone);
 		expect(selected).toEqual(mockParameters.routeMapStorage.offerDone);
 	});

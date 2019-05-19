@@ -8,7 +8,7 @@ describe("Auth Selectors", () => {
 		},
 	};
 
-	it("should return if the user is logined", () => {
+	it("returns if the user is logined", () => {
 		const selected = getLoginState.resultFunc(mockParameters.loginStorage.choosloginenRouteCoords);
 		expect(selected).toEqual(mockParameters.loginStorage.choosloginenRouteCoords);
 	});

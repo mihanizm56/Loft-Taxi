@@ -21,23 +21,23 @@ describe("Credentials Selectors", () => {
 		},
 	};
 
-	it("should return cards user name", () => {
+	it("returns cards user name", () => {
 		const selected = getCardNameState.resultFunc(mockParameters.сredentialsStorage.card.cardName);
 		expect(selected).toEqual(mockParameters.сredentialsStorage.card.cardName);
 	});
-	it("should return exp date of card", () => {
+	it("returns exp date of card", () => {
 		const selected = getExpDateState.resultFunc(mockParameters.сredentialsStorage.card.expDate);
 		expect(selected).toEqual(mockParameters.сredentialsStorage.card.expDate);
 	});
-	it("should return card number", () => {
+	it("returns card number", () => {
 		const selected = getCardNumberState.resultFunc(mockParameters.сredentialsStorage.card.cardNumber);
 		expect(selected).toEqual(mockParameters.сredentialsStorage.card.cardNumber);
 	});
-	it("should return cards cvv", () => {
+	it("returns cards cvv", () => {
 		const selected = getCvvState.resultFunc(mockParameters.сredentialsStorage.card.cvv);
 		expect(selected).toEqual(mockParameters.сredentialsStorage.card.cvv);
 	});
-	it("should return id the data of card is valid or not", () => {
+	it("returns id the data of card is valid or not", () => {
 		const selected = getValidFormData.resultFunc(
 			mockParameters.сredentialsStorage.card.cardName,
 			mockParameters.сredentialsStorage.card.expDate,
@@ -46,8 +46,10 @@ describe("Credentials Selectors", () => {
 		);
 		expect(selected).toEqual(false);
 	});
-	it("should return if the modal should be opened", () => {
-		const selected = getShouldFormBeOpened.resultFunc(mockParameters.сredentialsStorage.shouldFormBeOpened);
-		expect(selected).toEqual(mockParameters.сredentialsStorage.shouldFormBeOpened);
+	it("returns if the modal is opened", () => {
+		const shouldFormBeOpenedTest = mockParameters.сredentialsStorage.shouldFormBeOpened;
+
+		const selected = getShouldFormBeOpened.resultFunc(shouldFormBeOpenedTest);
+		expect(selected).toEqual(shouldFormBeOpenedTest);
 	});
 });
