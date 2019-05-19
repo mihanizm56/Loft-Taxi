@@ -8,7 +8,7 @@ import { App } from "./containers";
 import { saveState, loadState } from "./utils";
 import "./styles/main.css";
 import "./styles/shared.css";
-import "./fonts/index.css";
+import "./assets/fonts/index.css";
 
 const ROOT_ELEMENT = document.getElementById("root");
 
