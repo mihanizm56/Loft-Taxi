@@ -1,6 +1,6 @@
-import React from "./node_modules/react";
-import { Field } from "./node_modules/redux-form";
-import Button from "./node_modules/@material-ui/core/Button";
+import React from "react";
+import { Field } from "redux-form";
+import Button from "@material-ui/core/Button";
 import { renderTextField } from "../../atoms";
 import { nullFunc } from "../../../utils";
 import "./AuthForm.css";
