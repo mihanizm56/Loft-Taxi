@@ -2,3 +2,7 @@
 
 Link to the project
 https://loft-taxi-mihanizm56.herokuapp.com/
+
+Проверка на линтер отключена до лучших времён
+Redux модули покрыты тестами
+Использована комбинация архитекрутных наработок arch.js и redux-ducks
