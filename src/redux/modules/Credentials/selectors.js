@@ -28,7 +28,7 @@ export const getCvvState = createSelector(
 
 export const getValidFormData = createSelector(
 	[getCardNameState, getExpDateState, getCardNumberState, getCvvState],
-	(cardName, expDate, cardNumber, cvv) => cardName && expDate && cardNumber && cvv
+	(cardName, expDate, cardNumber, cvv) => Boolean(cardName && expDate && cardNumber && cvv)
 );
 
 export const getShouldFormBeOpened = createSelector(

@@ -14,16 +14,15 @@ import {
 import { nullFunc } from "../../../utils";
 
 class WrappedContainer extends Component {
-	static defaultProps = {
-		saveCardData: () => nullFunc,
-		openFormCard: () => nullFunc,
-	};
-
 	saveUserCard = ({ cardName, expDate, cardNumber, cvv }) => {
 		const { saveCardData, closeFormCard } = this.props;
 
 		saveCardData(cardName, expDate, cardNumber, cvv);
 		closeFormCard();
+	};
+
+	openFormCard = () => {
+		this.props.openFormCard();
 	};
 
 	render() {
@@ -37,6 +36,7 @@ class WrappedContainer extends Component {
 
 		return React.Children.map(children, child =>
 			React.cloneElement(child, {
+				openFormCard: this.openFormCard,
 				saveUserCard: this.saveUserCard,
 				...credentialsValues,
 				...restProps,

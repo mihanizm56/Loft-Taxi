@@ -3,10 +3,10 @@ import { shallow, mount } from "enzyme";
 import configureMockStore from "redux-mock-store";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
-import { AddressesStoreProvider, mapDispatchToProps } from "../";
-import * as middleware from "../../../../redux/modules/Adresses/middleware";
-import * as actions from "../../../../redux/modules/Adresses/actions";
-import { nullFunc } from "../../../../utils";
+import { AddressesStoreProvider, mapDispatchToProps } from "../AddressesStoreProvider";
+import * as middleware from "../../../redux/modules/Adresses/middleware";
+import * as actions from "../../../redux/modules/Adresses/actions";
+import { nullFunc } from "../../../utils";
 
 jest.mock("mapbox-gl/dist/mapbox-gl", () => ({
 	Map: () => ({}),
@@ -21,6 +21,7 @@ describe("AddressesStoreProvider", () => {
 	let wrapper;
 
 	beforeEach(() => {
+		jest.clearAllMocks();
 		store = mockStore(initialState);
 		wrapper = mount(
 			<Provider store={store}>
@@ -70,7 +71,7 @@ describe("AddressesStoreProvider", () => {
 			wrapper
 				.find("WrappedContainer")
 				.instance()
-				.chooseTripRoute("place A", "place B");
+				.chooseTripRoute({ from: "place A", to: "place B" });
 
 			expect(fetchCoordsActionMock).toHaveBeenCalled();
 		});
