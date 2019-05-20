@@ -1,4 +1,6 @@
 import { INPUT_DATA_OF_CARD, CLEAR_CARD_DATA, OPEN_CARD_FORM, CLOSE_CARD_FORM } from "./constants";
+import lensPath from "ramda/src/lensPath";
+import set from "ramda/src/set";
 
 const initState = {
 	card: {
@@ -10,43 +12,22 @@ const initState = {
 	shouldFormBeOpened: true,
 };
 
+const cardLens = lensPath(["card"]);
+const stateOfFormLens = lensPath(["shouldFormBeOpened"]);
+
 const сredentialsStorage = (state = initState, action) => {
 	switch (action.type) {
 		case INPUT_DATA_OF_CARD:
-			return {
-				...state,
-				card: {
-					...state.card,
-					cardName: action.payload.cardName,
-					expDate: action.payload.expDate,
-					cardNumber: action.payload.cardNumber,
-					cvv: action.payload.cvv,
-				},
-			};
+			return set(cardLens, action.payload, state);
 
 		case CLEAR_CARD_DATA:
-			return {
-				...state,
-				card: {
-					...state.card,
-					cardName: null,
-					expDate: null,
-					cardNumber: null,
-					cvv: null,
-				},
-			};
+			return set(cardLens, initState.card, state);
 
 		case OPEN_CARD_FORM:
-			return {
-				...state,
-				shouldFormBeOpened: true,
-			};
+			return set(stateOfFormLens, true, state);
 
 		case CLOSE_CARD_FORM:
-			return {
-				...state,
-				shouldFormBeOpened: false,
-			};
+			return set(stateOfFormLens, false, state);
 
 		default:
 			return state;

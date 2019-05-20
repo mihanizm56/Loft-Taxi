@@ -26,7 +26,6 @@
     "test": "set CI=true&& npm run test:all",
     "test:coverage": "react-scripts test --coverage",
     "precommit": "lint-staged",
-    "lint": "node_modules/.bin/eslint src/",
     "flow": "flow",
     "test:all": "react-scripts test --env=jsdom"
   },
