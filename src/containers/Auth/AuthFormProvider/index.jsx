@@ -24,4 +24,5 @@ export const AuthFormProvider = reduxForm({
 	form: "auth",
 	asyncValidate: asyncValidateForAuth,
 	validate: syncValidateForAuth,
+	asyncBlurFields: ['email', 'password'],
 })(WrappedContainer);

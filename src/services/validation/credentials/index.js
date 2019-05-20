@@ -20,13 +20,13 @@ export const asyncValidateForCredentials = values => {
 			resultError.cvv = "Это обязательное поле";
 		}
 
-		if (!+values.cardNumber) {
-			resultError.cardNumber = "Может содержать только цифры";
-		}
+		// if (!+values.cardNumber) {
+		// 	resultError.cardNumber = "Может содержать только цифры";
+		// }
 
-		if (values.cardNumber.length < 16) {
-			resultError.cardNumber = "В номере карты 16 цифр";
-		}
+		// if (values.cardNumber.length < 16) {
+		// 	resultError.cardNumber = "В номере карты 16 цифр";
+		// }
 
 		if (!+values.cvv) {
 			resultError.cvv = "Может содержать только цифры";
@@ -49,13 +49,13 @@ export const syncValidateForCredentials = values => {
 		errors.expDate = "Это обязательное поле";
 	}
 
-	if (!values.cardNumber) {
-		errors.cardNumber = "Это обязательное поле";
-	}
+	// if (!values.cardNumber) {
+	// 	errors.cardNumber = "Это обязательное поле";
+	// }
 
-	if (!+values.cardNumber) {
-		errors.cardNumber = "Может содержать только цифры";
-	}
+	// if (!+values.cardNumber) {
+	// 	errors.cardNumber = "Может содержать только цифры";
+	// }
 
 	if (!values.cvv) {
 		errors.cvv = "Это обязательное поле";

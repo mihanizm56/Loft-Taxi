@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { loginRequestAction, logoutAction, getLoginState } from "../../../redux/modules/Auth";
+import { batchActions } from "redux-batched-actions";
 import { clearCardDataAction } from "../../../redux/modules/Credentials";
 import { clearAdressRoute } from "../../../redux/modules/Adresses";
 
@@ -16,10 +17,10 @@ class WrappedContainer extends Component {
 	};
 
 	render() {
-		const { children, signIn, signOut, loggedIn, ...restProps } = this.props;
+		const { children, signIn, signOut, ...restProps } = this.props;
 
 		return React.Children.map(children, child =>
-			React.cloneElement(child, { signInUser: this.signInUser, loggedIn, signOutUser: this.signOutUser, ...restProps })
+			React.cloneElement(child, { signInUser: this.signInUser, signOutUser: this.signOutUser, ...restProps })
 		);
 	}
 }
@@ -36,9 +37,7 @@ const mapDispatchToProps = dispatch => {
 			dispatch(loginRequestAction(email, password));
 		},
 		signOut() {
-			dispatch(logoutAction());
-			dispatch(clearCardDataAction()); /// из соображений безопасности данных банковской карты
-			dispatch(clearAdressRoute());
+			dispatch(batchActions([logoutAction(), clearCardDataAction(), clearAdressRoute()]));
 		},
 	};
 };

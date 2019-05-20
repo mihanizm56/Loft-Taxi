@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 import { Field } from "redux-form";
-import { renderTextField } from "../../atoms";
+import { renderTextField, renderMaskedInput } from "../../atoms";
 import { nullFunc, preventDefault, normalizeToEmpty, normalizeCardName } from "../../../utils";
 import "./CredentialsForm.css";
 
@@ -48,12 +48,10 @@ export class CredentialsForm extends Component {
 							<Field
 								name="cardNumber"
 								type="text"
-								normalize={normalizeToEmpty}
 								inputProps={{
 									maxLength: 16,
 								}}
-								// component={renderMaskedInput}
-								component={renderTextField}
+								component={renderMaskedInput}
 								label="Номер карты *"
 								onDrop={preventDefault}
 							/>
