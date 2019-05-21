@@ -39,5 +39,5 @@ export const AuthForm = props => {
 };
 
 AuthForm.defaultProps = {
-	signInUser: nullFunc,
+	handleSubmit: nullFunc,
 };

@@ -29,5 +29,7 @@ export const asyncValidateForAuth = values => {
 		}
 
 		if (resultError.email || resultError.password) throw resultError;
+
+		return data;
 	});
 };
