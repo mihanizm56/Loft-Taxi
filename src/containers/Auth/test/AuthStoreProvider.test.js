@@ -3,11 +3,11 @@ import { shallow, mount } from "enzyme";
 import configureMockStore from "redux-mock-store";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
-import { AuthStoreProvider, mapDispatchToProps } from "../AuthStoreProvider";
-import * as middleware from "../../../redux/modules/Auth/middleware";
-import * as actionsAuth from "../../../redux/modules/Auth/actions";
-import * as actionsCredentials from "../../../redux/modules/Credentials/actions";
-import * as actionsAdresses from "../../../redux/modules/Adresses/actions";
+import { AuthStoreProvider, mapDispatchToProps } from "../auth-store-provider";
+import * as middleware from "../../../redux/modules/auth/middleware";
+import * as actionsAuth from "../../../redux/modules/auth/actions";
+import * as actionsCredentials from "../../../redux/modules/credentials/actions";
+import * as actionsAdresses from "../../../redux/modules/addresses/actions";
 import { nullFunc } from "../../../utils";
 
 jest.mock("mapbox-gl/dist/mapbox-gl", () => ({

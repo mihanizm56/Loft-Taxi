@@ -1,2 +1,2 @@
-export * from "./CredentialsStoreProvider";
-export * from "./CredentialsFormProvider";
+export * from "./credentials-store-provider";
+export * from "./credentials-form-provider";

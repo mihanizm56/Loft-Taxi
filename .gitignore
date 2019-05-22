@@ -4,8 +4,6 @@
 
 # testing
 /coverage
-/client/coverage
-/server/coverage
 
 # production
 /build

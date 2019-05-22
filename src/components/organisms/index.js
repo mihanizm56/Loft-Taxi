@@ -1,2 +1,2 @@
-export * from "./globalPackage";
+export * from "./global-package";
 export * from "./pages";

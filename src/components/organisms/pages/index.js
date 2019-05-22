@@ -1,3 +1,3 @@
-export * from "./IndexPage";
-export * from "./LoginPage";
-export * from "./ProfilePage";
+export * from "./index-page";
+export * from "./login-page";
+export * from "./profile-page";

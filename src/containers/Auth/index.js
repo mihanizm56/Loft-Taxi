@@ -1,2 +1,2 @@
-export * from "./AuthStoreProvider";
-export * from "./AuthFormProvider";
+export * from "./auth-store-provider";
+export * from "./auth-form-provider";
