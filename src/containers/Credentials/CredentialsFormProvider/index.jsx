@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { reduxForm } from "redux-form";
-import { asyncValidateForCredentials, syncValidateForCredentials } from "../../../services/validation";
+import { asyncValidateForCredentials } from "../../../services/validation";
 
 class WrappedContainer extends Component {
 	render() {
@@ -16,6 +16,6 @@ class WrappedContainer extends Component {
 
 export const CredentialsFormProvider = reduxForm({
 	asyncValidate: asyncValidateForCredentials,
-	validate: syncValidateForCredentials,
+	asyncBlurFields: ["cvv", "cardNumber", "cardName", "expDate"],
 	form: "credentials",
 })(WrappedContainer);

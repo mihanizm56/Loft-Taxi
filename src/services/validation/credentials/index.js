@@ -1,5 +1,25 @@
 import { sleep } from "../..";
 
+const checkCardTrimValidate = value => {
+	let result = true;
+	const filteredValue = value.replace(/\s+/g, "");
+
+	if (filteredValue.length !== 16) {
+		return false;
+	}
+
+	for (const item of filteredValue) {
+		const numberItem = parseInt(item);
+
+		if (numberItem !== 0 && !numberItem) {
+			result = false;
+			break;
+		}
+	}
+
+	return result;
+};
+
 export const asyncValidateForCredentials = values => {
 	return sleep(100).then(data => {
 		const resultError = {};
@@ -20,13 +40,17 @@ export const asyncValidateForCredentials = values => {
 			resultError.cvv = "Это обязательное поле";
 		}
 
-		// if (!+values.cardNumber) {
-		// 	resultError.cardNumber = "Может содержать только цифры";
-		// }
+		if (!values.cardNumber) {
+			resultError.cardNumber = "Может содержать только цифры";
+		}
 
-		// if (values.cardNumber.length < 16) {
-		// 	resultError.cardNumber = "В номере карты 16 цифр";
-		// }
+		if (values.cardNumber && values.cardNumber.length < 19) {
+			resultError.cardNumber = "Вы ыыели недостаточно цифр";
+		}
+
+		if (values.cardNumber && !checkCardTrimValidate(values.cardNumber)) {
+			resultError.cardNumber = "Может содержать только цифры";
+		}
 
 		if (!+values.cvv) {
 			resultError.cvv = "Может содержать только цифры";
@@ -49,13 +73,17 @@ export const syncValidateForCredentials = values => {
 		errors.expDate = "Это обязательное поле";
 	}
 
-	// if (!values.cardNumber) {
-	// 	errors.cardNumber = "Это обязательное поле";
-	// }
+	if (!values.cardNumber) {
+		errors.cardNumber = "Может содержать только цифры";
+	}
 
-	// if (!+values.cardNumber) {
-	// 	errors.cardNumber = "Может содержать только цифры";
-	// }
+	if (values.cardNumber && values.cardNumber.length < 19) {
+		errors.cardNumber = "Вы ыыели недостаточно цифр";
+	}
+
+	if (values.cardNumber && !checkCardTrimValidate(values.cardNumber)) {
+		errors.cardNumber = "Может содержать только цифры";
+	}
 
 	if (!values.cvv) {
 		errors.cvv = "Это обязательное поле";

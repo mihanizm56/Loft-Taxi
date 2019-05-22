@@ -21,7 +21,7 @@ describe("SAVE_ALL_ROUTES action", () => {
 	});
 });
 
-describe("SAVE_CHOOSEN_COORDS_ROUTES action", () => {
+describe.only("SAVE_CHOOSEN_COORDS_ROUTES action", () => {
 	const state0 = addressReducer(undefined, "test");
 	const state1 = addressReducer(state0, saveChoosenCoordsAction(EMPTY_ARRAY));
 

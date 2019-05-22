@@ -10,8 +10,7 @@ const initialState = {
 };
 
 const allRoutesLens = lensPath(["allRoutes"]);
-const offerDoneLens = lensPath(["offerDone"]);
-const choosenRouteCoordsLens = lensPath(["choosenRouteCoords"]);
+const stateLens = lensPath("");
 
 const routeMapStorage = (state = initialState, action) => {
 	switch (action.type) {
@@ -19,16 +18,10 @@ const routeMapStorage = (state = initialState, action) => {
 			return set(allRoutesLens, action.payload.routes, state);
 
 		case SAVE_CHOOSEN_COORDS_ROUTES:
-			return {
-				...set(choosenRouteCoordsLens, action.payload, state),
-				...set(offerDoneLens, true, state),
-			};
+			return set(stateLens, { choosenRouteCoords: action.payload, offerDone: true }, state);
 
 		case MAKE_NEW_OFFER:
-			return {
-				...set(choosenRouteCoordsLens, EMPTY_ARRAY, state),
-				...set(offerDoneLens, false, state),
-			};
+			return set(stateLens, { choosenRouteCoords: EMPTY_ARRAY, offerDone: false }, state);
 
 		default:
 			return state;
